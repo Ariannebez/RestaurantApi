@@ -9,7 +9,7 @@ include_once('../core/initialize.php');
 // Create instance of User
 $clients = new clients($db);
 
-//calling a function from user instance
+//calling a function from clients instance
 $result = $clients->read();
 
 $num = $result->rowCount();

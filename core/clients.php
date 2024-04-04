@@ -12,6 +12,7 @@ class Clients{
     public $name;
     public $surname;
     public $dob;
+    public $roleId; 
 
     // user constructor
     public function __construct($db){
@@ -32,23 +33,25 @@ class Clients{
         return $stmt;
     }
 
-    //Read single id by link - ex. http://localhost:8888/api/getUser.php?id=2
     public function read_single(){
-        $query = 'SELECT * FROM '.$this->table.' u WHERE u.id = ? LIMIT 1;';
-
+        $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1,$this->id);
+        $stmt->bindParam(1, $this->id);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->email = $row['email'];
-        $this->password = $row['password'];
-        $this->name = $row['name'];
-        $this->surname = $row['surname'];
-        $this->dob = $row['dob'];
-
-        return $stmt;
-    }
+    
+        if($row) {
+            $this->roleId = $row['roleId']; // Assuming this property exists
+            $this->email = $row['email'];
+            $this->password = $row['password'];
+            $this->name = $row['name'];
+            $this->surname = $row['surname'];
+            $this->dob = $row['dob'];
+            return true; // Indicating a record was found
+        }
+        return false; // No record found
+    } 
+    
 
     //Creating User 
     public function create(){
