@@ -1,15 +1,17 @@
 <?php
 
-class User{
+class Clients{
     //properties for database stuff
     private $conn;
     private $table = 'users';
     
     //properties of user
     public $id;
-    public $username;
     public $email;
     public $password;
+    public $name;
+    public $surname;
+    public $dob;
 
     // user constructor
     public function __construct($db){
@@ -19,7 +21,7 @@ class User{
     //Getting users from database 
     public function read(){
         //Reading query
-        $query = 'SELECT * FROM '.$this->table.' u ORDER BY u.username ASC;';
+        $query = 'SELECT * FROM '.$this->table.' u WHERE u.roleId = 1;';
 
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
@@ -39,9 +41,11 @@ class User{
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->username = $row['username'];
         $this->email = $row['email'];
         $this->password = $row['password'];
+        $this->name = $row['name'];
+        $this->surname = $row['surname'];
+        $this->dob = $row['dob'];
 
         return $stmt;
     }
