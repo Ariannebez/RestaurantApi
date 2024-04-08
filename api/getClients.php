@@ -27,6 +27,7 @@ if($num > 0){
             'name' => $name,
             'surname' => $surname,
             'dob' => $dob
+            
         );
         //add current user into list 
         array_push($clients_list['data'], $clients_item);

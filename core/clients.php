@@ -5,6 +5,7 @@ class Clients{
     private $conn;
     private $table = 'users';
     
+    
     //properties of user
     public $id;
     public $email;
@@ -12,7 +13,8 @@ class Clients{
     public $name;
     public $surname;
     public $dob;
-    public $roleId; 
+    public $roleId;
+    
 
     // user constructor
     public function __construct($db){
@@ -23,6 +25,8 @@ class Clients{
     public function read(){
         //Reading query
         $query = 'SELECT * FROM '.$this->table.' u WHERE u.roleId = 1;';
+        
+
 
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
@@ -35,6 +39,7 @@ class Clients{
 
     public function read_single(){
         $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
+    
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
         $stmt->execute();
@@ -51,24 +56,30 @@ class Clients{
         }
         return false; // No record found
     } 
-    
 
-    //Creating User 
+    //creating client
     public function create(){
-        $query = 'INSERT INTO '.$this->table.'
-                    ( username, email, password) VALUES (:username, :email, :password );';
+        $query = "INSERT INTO users (email, password, name, surname, dob, addressId, roleId) 
+                      VALUES (:email, :password, :name, :surname, :dob, :addressId, 1)";
 
         $stmt = $this->conn->prepare($query);
 
-        //clean data sent by user
-        $this->username = htmlspecialchars(strip_tags($this->username));
+        // Clean data
         $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->password = htmlspecialchars(strip_tags($this->password)); // Consider hashing
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->surname = htmlspecialchars(strip_tags($this->surname));
+        $this->dob = htmlspecialchars(strip_tags($this->dob));
+        $this->addressId = htmlspecialchars(strip_tags($this->addressId));
+        $this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
-        //bind thr parameters to request
-        $stmt->bindParam(':username', $this->username);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $this->password);
+       // Bind the parameters, including addressId and roleId
+       $stmt->bindParam(':email', $this->email);
+       $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
+       $stmt->bindParam(':name', $this->name);
+       $stmt->bindParam(':surname', $this->surname);
+       $stmt->bindParam(':dob', $this->dob);
+       $stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
 
         if ($stmt->execute()){
             return true;
@@ -78,74 +89,4 @@ class Clients{
         return false;
     }
 
-    public function update(){
-        $query = 'UPDATE '.$this->table.'
-        SET username = :username,
-        email = :email,
-        password = :password
-        WHERE id = :id;';
-
-        $stmt = $this->conn->prepare($query);
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->username = htmlspecialchars(strip_tags($this->username));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-
-        //bind thr parameters to request
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':username', $this->username);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $this->password);
-
-        if($stmt->execute()){
-            return true;
-        }
-
-        printf('Error: %s. \n', $stmt->error);
-        return false;
-    }
-
-    public function updateEmail(){
-        $query = 'UPDATE '.$this->table.'
-        SET email = :email
-        WHERE id = :id;';
-
-        $stmt = $this->conn->prepare($query);
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-      
-
-        //bind thr parameters to request
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':email', $this->email);
-        
-
-        if($stmt->execute()){
-            return true;
-        }
-
-        printf('Error: %s. \n', $stmt->error);
-        return false;
-    }
-
-    public function delete(){
-        $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
-
-        $stmt = $this->conn->prepare($query);
-
-        //clean data sent by user
-        $this->id = htmlspecialchars(strip_tags($this->id));
-
-        $stmt->bindParam(':id', $this->id);
-
-        if($stmt->execute()){
-            return true;
-        }
-
-        printf('Error: %s. \n', $stmt->error);
-        return false;
-
-    }
 }
