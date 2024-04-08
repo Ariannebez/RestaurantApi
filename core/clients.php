@@ -99,8 +99,7 @@ class Clients{
         password = :password,
         name = :name,
         surname = :surname,
-        dob = :dob,
-        //roleId = :roleId
+        dob = :dob
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);

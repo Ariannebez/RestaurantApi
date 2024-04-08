@@ -43,4 +43,33 @@ class address{
         return false;
     }
 
+    //Update Address details
+    public function update(){
+        $query = 'UPDATE '.$this->table.'
+        SET street = :street,
+        townId = :townId
+        WHERE id = :id;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->street = htmlspecialchars(strip_tags($this->street));
+        $this->townId = htmlspecialchars(strip_tags($this->townId));
+    
+        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
+
+        //bind thr parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':street', $this->street);
+       $stmt->bindParam(':townId', $this->townId); 
+      
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
 }
