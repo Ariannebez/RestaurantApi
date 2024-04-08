@@ -21,10 +21,25 @@ $Clients->name = $data->name;
 $Clients->surname = $data->surname;
 $Clients->dob = $data->dob;
 $Clients->addressId = $data->addressId;
+$address->id = $data->id;
+$address->street = $data->street;
+$address->townId = $data->townId;
+
  
-if($Clients->create()){
-    echo json_encode(array('message' => 'Clietn created.'));
-}
-else{
-    echo json_encode(array('message' => 'Clietn not created.'));
+// Assuming $address->create() inserts the address and returns true on success
+if ($address->createAddress()) {
+    // Retrieve the ID of the last inserted address
+    $addressId = $db->lastInsertId();
+
+    // Assign the addressId to the client
+    $Clients->addressId = $addressId;
+
+    // Now, create the client with the addressId set
+    if($Clients->create()){
+        echo json_encode(array('message' => 'Client created.'));
+    } else {
+        echo json_encode(array('message' => 'Client not created.'));
+    }
+} else {
+    echo json_encode(array('message' => 'Address not created.'));
 }

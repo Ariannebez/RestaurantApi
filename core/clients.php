@@ -74,7 +74,7 @@ class Clients{
         $this->surname = htmlspecialchars(strip_tags($this->surname));
         $this->dob = htmlspecialchars(strip_tags($this->dob));
         $this->addressId = htmlspecialchars(strip_tags($this->addressId));
-        $this->roleId = htmlspecialchars(strip_tags($this->roleId));
+        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
        // Bind the parameters, including addressId and roleId
        $stmt->bindParam(':email', $this->email);
@@ -82,7 +82,7 @@ class Clients{
        $stmt->bindParam(':name', $this->name);
        $stmt->bindParam(':surname', $this->surname);
        $stmt->bindParam(':dob', $this->dob);
-       $stmt->bindParam(':addressId', $addressId, PDO::PARAM_INT);
+       $stmt->bindParam(':addressId', $this->addressId);
 
         if ($stmt->execute()){
             return true;

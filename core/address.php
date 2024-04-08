@@ -5,7 +5,7 @@ class address{
     private $conn;
     private $table = 'address';
 
-    //properties of user
+    //properties of address
     public $id;
     public $street;
     public $townId;
@@ -18,9 +18,9 @@ class address{
     }
 
     //create Address
-    public function create(){
-        $query = "INSERT INTO users (id, street, townId) 
-                      VALUES (:id, street, townId)";
+    public function createAddress(){
+        $query = "INSERT INTO address (id, street, townId) 
+                      VALUES (:id, :street, :townId)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -31,7 +31,7 @@ class address{
         
        // Bind the parameters, including addressId and roleId
        $stmt->bindParam(':id', $this->id);
-       $stmt->bindParam(':street', $this->password); // Ensure password is securely hashed
+       $stmt->bindParam(':street', $this->street); 
        $stmt->bindParam(':townId', $this->townId);
        
 
