@@ -21,6 +21,7 @@ $Clients->password = $data->password;
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
 $Clients->dob = $data->dob;
+//$Clients->roleId = $data->roleId;
 
 if($Clients->update()){
     echo json_encode(array('message' => 'User updated.'));

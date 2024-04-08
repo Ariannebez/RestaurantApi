@@ -99,7 +99,8 @@ class Clients{
         password = :password,
         name = :name,
         surname = :surname,
-        dob = :dob
+        dob = :dob,
+        //roleId = :roleId
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
@@ -110,6 +111,7 @@ class Clients{
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->surname = htmlspecialchars(strip_tags($this->surname));
         $this->dob = htmlspecialchars(strip_tags($this->dob));
+        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
         //bind thr parameters to request
         $stmt->bindParam(':id', $this->id);
@@ -118,6 +120,7 @@ class Clients{
        $stmt->bindParam(':name', $this->name);
        $stmt->bindParam(':surname', $this->surname);
        $stmt->bindParam(':dob', $this->dob);
+       //$stmt->bindParam(':roleId', $this->roleId);
 
         if($stmt->execute()){
             return true;
