@@ -26,7 +26,9 @@ if($num > 0){
             'password' => $password,
             'name' => $name,
             'surname' => $surname,
-            'dob' => $dob
+            'dob' => $dob,
+            'addressId' => $addressId,
+            'roleId' => $roleId
             
         );
         //add current user into list 

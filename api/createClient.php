@@ -20,7 +20,7 @@ $Clients->password = $data->password;
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
 $Clients->dob = $data->dob;
-$address->addressId = $data->addressId;
+$Clients->addressId = $data->addressId;
  
 if($Clients->create()){
     echo json_encode(array('message' => 'Clietn created.'));

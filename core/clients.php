@@ -13,6 +13,7 @@ class Clients{
     public $name;
     public $surname;
     public $dob;
+    public $addressId;
     public $roleId;
     
 
@@ -52,6 +53,8 @@ class Clients{
             $this->name = $row['name'];
             $this->surname = $row['surname'];
             $this->dob = $row['dob'];
+            $this->addressId = $row['addressId'];
+            $this->roleId = $row['roleId'];
             return true; // Indicating a record was found
         }
         return false; // No record found

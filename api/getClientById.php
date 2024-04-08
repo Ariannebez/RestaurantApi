@@ -28,7 +28,9 @@ if ($clients->roleId == 1) {
         'password' => $clients->password,
         'name' => $clients->name,
         'surname' => $clients->surname,
-        'dob' => $clients->dob
+        'dob' => $clients->dob,
+        'addressId' => $clients->addressId,
+        'roleId' => $clients->roleId
     );
     echo json_encode($clients_info);
 } else {
