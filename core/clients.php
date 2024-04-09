@@ -92,7 +92,7 @@ class Clients{
         return false;
     }
 
-    //Update client details
+    //Updating client details
     public function update(){
         $query = 'UPDATE '.$this->table.'
         SET email = :email,
@@ -127,6 +127,26 @@ class Clients{
 
         printf('Error: %s. \n', $stmt->error);
         return false;
+    }
+
+    //deleting client by id 
+    public function delete(){
+        $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
+
+        $stmt = $this->conn->prepare($query);
+
+        //clean data sent by user
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        $stmt->bindParam(':id', $this->id);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+
     }
 
 }
