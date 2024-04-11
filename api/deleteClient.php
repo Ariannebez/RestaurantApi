@@ -15,11 +15,25 @@ $Clients = new Clients($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$Clients->id = isset($_GET['id']) ? $_GET['id'] : die();
+// Getting ID from the query string
+$clientId = isset($_GET['id']) ? $_GET['id'] : null;
 
-if($Clients->delete()){
-    echo json_encode(array('message' => 'Client Deleted.'));
+if($clientId === null) {
+    echo json_encode(array('message' => 'No ID provided.'));
+    exit; // Stop script execution after sending the response
 }
-else{
-    echo json_encode(array('message' => 'Client not Deleted.'));
+
+// Setting client ID
+$Clients->id = $clientId;
+
+// First, check if the client exists
+if(!$Clients->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such client.'));
+} else {
+    // Try to delete the client
+    if($Clients->delete()) {
+        echo json_encode(array('message' => 'Client Deleted.'));
+    } else {
+        echo json_encode(array('message' => 'Client Not Deleted.'));
+    }
 }

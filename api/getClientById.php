@@ -34,6 +34,6 @@ if ($clients->roleId == 1) {
     );
     echo json_encode($clients_info);
 } else {
-    // roleId is not 1 (e.g., 2), show error message
+    // roleId is not 1 (and is 2), show error message
     echo json_encode(['message' => 'Error: Access denied because this Id has a diffrent role.']);
 }

@@ -129,6 +129,30 @@ class Clients{
         return false;
     }
 
+    //update password
+    public function updatePassword(){
+        $query = 'UPDATE '.$this->table.'
+        SET password = :password
+        WHERE id = :id;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+        
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
+        
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
     //Deleting client by id 
     public function delete(){
         $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
@@ -147,6 +171,27 @@ class Clients{
         printf('Error: %s. \n', $stmt->error);
         return false;
 
+    }
+
+    //Checking if client exists
+    public function exists() {
+        $query = 'SELECT COUNT(*) FROM '.$this->table.' WHERE id = :id';
+    
+        // Preparing statement
+        $stmt = $this->conn->prepare($query);
+    
+        // Binding ID
+        $stmt->bindParam(':id', $this->id);
+    
+        // Execute query
+        $stmt->execute();
+    
+        // Checking if any rows are returned
+        if($stmt->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
