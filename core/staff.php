@@ -1,6 +1,6 @@
 <?php
 
-class Staff{
+class staff{
     //properties for database stuff
     private $conn;
     private $table = 'users';

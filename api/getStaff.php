@@ -10,17 +10,17 @@ include_once('../core/initialize.php');
 $staff = new staff($db);
 
 //calling a function from clients instance
-$result = $clients->read();
+$result = $staff->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $clients_list=array();
-    $clients_list['data'] = array();
+    $staff_list=array();
+    $staff_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $clients_item = array(
+        $staff_item = array(
             'id' => $id,
             'email' => $email,
             'password' => $password,
@@ -32,10 +32,10 @@ if($num > 0){
             
         );
         //add current user into list 
-        array_push($clients_list['data'], $clients_item);
+        array_push($staff_list['data'], $staff_item);
     }
 
-    echo json_encode($clients_list);
+    echo json_encode($staff_list);
 }
 else{
     echo json_encode(array('message'=>'No Clients found'));
