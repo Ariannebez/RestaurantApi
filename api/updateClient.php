@@ -4,7 +4,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
  
-header('Access-Control-Allow-Methods: PUT');
+header('Access-Control-Allow-Methods: PATCH');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
@@ -17,15 +17,15 @@ $data = json_decode(file_get_contents('php://input'));
 
 $Clients->id = $data->id;
 $Clients->email = $data->email;
-$Clients->password = $data->password;
+//$Clients->password = $data->password;
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
-$Clients->dob = $data->dob;
+//$Clients->dob = $data->dob;
 //$Clients->roleId = $data->roleId;
 
 if($Clients->update()){
-    echo json_encode(array('message' => 'User updated.'));
+    echo json_encode(array('message' => 'Client updated.'));
 }
 else{
-    echo json_encode(array('message' => 'User not updated.'));
+    echo json_encode(array('message' => 'Client not updated.'));
 }

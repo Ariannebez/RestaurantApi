@@ -1,6 +1,6 @@
 <?php
 
-class Clients{
+class Staff{
     //properties for database stuff
     private $conn;
     private $table = 'users';
@@ -22,10 +22,10 @@ class Clients{
         $this->conn = $db; 
     }
 
-    //Getting all users from database 
+    //Getting users from database 
     public function read(){
         //Reading query
-        $query = 'SELECT * FROM '.$this->table.' u WHERE u.roleId = 1;';
+        $query = 'SELECT * FROM '.$this->table.' u WHERE u.roleId = 2;';
         
 
 
@@ -38,7 +38,6 @@ class Clients{
         return $stmt;
     }
 
-    //Reading single client by ID
     public function read_single(){
         $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
     
@@ -64,11 +63,11 @@ class Clients{
     //creating client
     public function create(){
         $query = "INSERT INTO users (email, password, name, surname, dob, addressId, roleId) 
-                      VALUES (:email, :password, :name, :surname, :dob, :addressId, 1)";
+                      VALUES (:email, :password, :name, :surname, :dob, :addressId, 2)";
 
         $stmt = $this->conn->prepare($query);
 
-        // Cleaning data
+        // Clean data
         $this->email = htmlspecialchars(strip_tags($this->email));
         $this->password = htmlspecialchars(strip_tags($this->password)); // Consider hashing
         $this->name = htmlspecialchars(strip_tags($this->name));
@@ -77,7 +76,7 @@ class Clients{
         $this->addressId = htmlspecialchars(strip_tags($this->addressId));
         //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
-       // Binding the parameters, including addressId and roleId
+       // Bind the parameters, including addressId and roleId
        $stmt->bindParam(':email', $this->email);
        $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
        $stmt->bindParam(':name', $this->name);
@@ -93,33 +92,34 @@ class Clients{
         return false;
     }
 
-
-    //Updating client details using 'PATCH' (name, surname, email)
+    //Updating client details
     public function update(){
         $query = 'UPDATE '.$this->table.'
         SET email = :email,
+        password = :password,
         name = :name,
-        surname = :surname
+        surname = :surname,
+        dob = :dob
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->email = htmlspecialchars(strip_tags($this->email));
-        //$this->password = htmlspecialchars(strip_tags($this->password));
+        $this->password = htmlspecialchars(strip_tags($this->password));
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->surname = htmlspecialchars(strip_tags($this->surname));
-        //$this->dob = htmlspecialchars(strip_tags($this->dob));
+        $this->dob = htmlspecialchars(strip_tags($this->dob));
         //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
-        //binding the parameters to request
+        //bind thr parameters to request
         $stmt->bindParam(':id', $this->id);
         $stmt->bindParam(':email', $this->email);
-        //$stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':surname', $this->surname);
-        //$stmt->bindParam(':dob', $this->dob);
-        //$stmt->bindParam(':roleId', $this->roleId);
+       $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
+       $stmt->bindParam(':name', $this->name);
+       $stmt->bindParam(':surname', $this->surname);
+       $stmt->bindParam(':dob', $this->dob);
+       //$stmt->bindParam(':roleId', $this->roleId);
 
         if($stmt->execute()){
             return true;
@@ -129,7 +129,7 @@ class Clients{
         return false;
     }
 
-    //Deleting client by id 
+    //deleting client by id 
     public function delete(){
         $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
 
