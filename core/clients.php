@@ -22,7 +22,7 @@ class Clients{
         $this->conn = $db; 
     }
 
-    //Getting all users from database 
+    //Getting all client from database where roleid is 1
     public function read(){
         //Reading query
         $query = 'SELECT * FROM '.$this->table.' u WHERE u.roleId = 1;';

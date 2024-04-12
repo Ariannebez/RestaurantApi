@@ -7,6 +7,7 @@ class address{
 
     //properties of address
     public $id;
+    public $doorNo;
     public $street;
     public $townId;
    
@@ -19,18 +20,18 @@ class address{
 
     //create Address
     public function createAddress(){
-        $query = "INSERT INTO address (id, street, townId) 
-                      VALUES (:id, :street, :townId)";
+        $query = "INSERT INTO address (doorNo, street, townId) 
+                      VALUES (:doorNo, :street, :townId)";
 
         $stmt = $this->conn->prepare($query);
 
         // Clean data
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->doorNo = htmlspecialchars(strip_tags($this->doorNo));
         $this->street = htmlspecialchars(strip_tags($this->street)); // Consider hashing
         $this->townId = htmlspecialchars(strip_tags($this->townId));
         
        // Bind the parameters, including addressId and roleId
-       $stmt->bindParam(':id', $this->id);
+       $stmt->bindParam(':doorNo', $this->doorNo);
        $stmt->bindParam(':street', $this->street); 
        $stmt->bindParam(':townId', $this->townId);
        
