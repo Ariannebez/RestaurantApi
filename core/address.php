@@ -73,4 +73,46 @@ class address{
         return false;
     }
 
+
+    //Deleting client by id 
+    public function delete(){
+        $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
+
+        $stmt = $this->conn->prepare($query);
+
+        //clean data sent by user
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        $stmt->bindParam(':id', $this->id);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+
+    }
+
+    //Checking if client exists
+    public function exists() {
+        $query = 'SELECT COUNT(*) FROM '.$this->table.' WHERE id = :id';
+    
+        // Preparing statement
+        $stmt = $this->conn->prepare($query);
+    
+        // Binding ID
+        $stmt->bindParam(':id', $this->id);
+    
+        // Execute query
+        $stmt->execute();
+    
+        // Checking if any rows are returned
+        if($stmt->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
