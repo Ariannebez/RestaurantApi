@@ -7,33 +7,33 @@ header('Content-Type: application/json');
 include_once('../core/initialize.php');
 
 // Create instance of User
-$address = new address($db);
+$town = new town($db);
 
 //calling a function from clients instance
-$result = $address->read();
+$result = $town->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $address_list=array();
-    $address_list['data'] = array();
+    $town_list=array();
+    $town_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $address_item = array(
+        $town_item = array(
             'id' => $id,
-            'doorNo' => $doorNo,
-            'street' => $street,
-            'townName' => $townName,
+            'name' => $name,
+            'countryName' => $countryName,
+            
             
             
         );
         //add current user into list 
-        array_push($address_list['data'], $address_item);
+        array_push($town_list['data'], $town_item);
     }
 
-    echo json_encode($address_list);
+    echo json_encode($town_list);
 }
 else{
-    echo json_encode(array('message'=>'No Address found'));
+    echo json_encode(array('message'=>'No Town found'));
 }

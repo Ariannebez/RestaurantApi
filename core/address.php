@@ -10,6 +10,7 @@ class address{
     public $doorNo;
     public $street;
     public $townId;
+    public $townName;
    
     
 
@@ -21,7 +22,10 @@ class address{
     //Getting all addresses from database where roleid is 1
     public function read(){
         //Reading query
-        $query = 'SELECT * FROM '.$this->table.' ';
+        // a is for address and t for town
+        $query = 'SELECT a.id, a.doorNo, a.street, t.name AS townName
+                    FROM '.$this->table.' a 
+                    JOIN town t ON t.id = a.townId;';
         
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
@@ -34,7 +38,10 @@ class address{
 
     //Reading single address by ID
     public function read_single(){
-        $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
+        $query = 'SELECT a.id, a.doorNo, a.street, t.name AS townName
+        FROM '.$this->table.' a 
+        JOIN town t ON t.id = a.townId 
+        WHERE a.id = ? LIMIT 1;';
     
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
@@ -45,7 +52,7 @@ class address{
             $this->id = $row['id']; // Assuming this property exists
             $this->doorNo = $row['doorNo'];
             $this->street = $row['street'];
-            $this->townId = $row['townId'];
+            $this->townName = $row['townName'];
             return true; // Indicating a record was found
         }
         return false; // No record found
