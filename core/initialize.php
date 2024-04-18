@@ -12,3 +12,4 @@ require_once(CORE_PATH.DS.'clients.php');
 require_once(CORE_PATH.DS.'address.php'); 
 require_once(CORE_PATH.DS.'staff.php'); 
 require_once(CORE_PATH.DS.'town.php');
+require_once(CORE_PATH.DS.'country.php');

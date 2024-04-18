@@ -5,11 +5,10 @@ class town{
     private $conn;
     private $table = 'town';
 
-    //properties of address
+    //properties of town
     public $id;
     public $name;
     public $countryId;
-    public $countryName;
    
     
 
@@ -57,9 +56,9 @@ class town{
     } 
 
     //create town
-    public function createAddress(){
-        $query = "INSERT INTO address (name, countryId) 
-                      VALUES (:name, :countryId";
+    public function createTown(){
+        $query = 'INSERT INTO '.$this->table.'
+        ( name, countryId) VALUES (:name, :countryId);';
 
         $stmt = $this->conn->prepare($query);
 
@@ -80,6 +79,7 @@ class town{
         printf('Error %s. \n', $stmt->error);
         return false;
     }
+
 
     //Update Address details
     public function update(){
