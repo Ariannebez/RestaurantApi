@@ -11,3 +11,4 @@ require_once(INC_PATH.DS.'config.php');
 require_once(CORE_PATH.DS.'clients.php'); 
 require_once(CORE_PATH.DS.'address.php'); 
 require_once(CORE_PATH.DS.'staff.php'); 
+require_once(CORE_PATH.DS.'town.php');

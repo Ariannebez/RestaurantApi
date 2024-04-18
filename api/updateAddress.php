@@ -10,7 +10,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../core/initialize.php');
  
-// Create instance of User
+// Create instance of address
 $address = new address($db);
 
 $data = json_decode(file_get_contents('php://input'));

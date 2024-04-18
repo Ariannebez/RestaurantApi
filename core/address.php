@@ -18,6 +18,39 @@ class address{
         $this->conn = $db; 
     }
 
+    //Getting all addresses from database where roleid is 1
+    public function read(){
+        //Reading query
+        $query = 'SELECT * FROM '.$this->table.' ';
+        
+        //Prepare statement
+        $stmt =  $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    //Reading single address by ID
+    public function read_single(){
+        $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if($row) {
+            $this->id = $row['id']; // Assuming this property exists
+            $this->doorNo = $row['doorNo'];
+            $this->street = $row['street'];
+            $this->townId = $row['townId'];
+            return true; // Indicating a record was found
+        }
+        return false; // No record found
+    } 
+
     //create Address
     public function createAddress(){
         $query = "INSERT INTO address (doorNo, street, townId) 
