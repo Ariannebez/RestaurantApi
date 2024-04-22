@@ -18,7 +18,7 @@ class town{
         $this->conn = $db; 
     }
 
-    //Getting all addresses from database where roleid is 1
+    //Getting all towns from database where roleid is 1
     public function read(){
         //Reading query
         $query = 'SELECT t.id, t.name, c.name AS countryName
@@ -44,6 +44,28 @@ class town{
     
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if($row) {
+            $this->id = $row['id']; // Assuming this property exists
+            $this->name = $row['name'];
+            $this->countryName = $row['countryName'];
+            return true; // Indicating a record was found
+        }
+        return false; // No record found
+    } 
+
+    //Reading single town by name
+    public function read_singleName(){
+        //$query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
+        $query = 'SELECT t.id, t.name, c.name AS countryName
+         FROM '.$this->table.' t
+         JOIN country c ON c.id = t.countryId 
+         WHERE t.name = ? LIMIT 1;;';
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->name);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
