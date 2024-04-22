@@ -50,8 +50,8 @@ class Role{
 
     //creating client
     public function create(){
-        $query = "INSERT INTO users (email, password, name, surname, dob, addressId, roleId) 
-                      VALUES (:email, :password, :name, :surname, :dob, :addressId, 1)";
+        $query = "INSERT INTO role (name) 
+                      VALUES (:name)";
 
         $stmt = $this->conn->prepare($query);
 
@@ -72,7 +72,7 @@ class Role{
     }
 
     //Updating role using 'PUT'
-    public function updateAll(){
+    public function update(){
         $query = 'UPDATE '.$this->table.'
         SET name = :name
         WHERE id = :id;';
