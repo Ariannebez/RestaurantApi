@@ -27,7 +27,7 @@ class country{
         return $stmt;
     }
 
-    //Reading single town by ID
+    //Reading single country by ID
     public function read_single(){
         $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
        
@@ -43,6 +43,23 @@ class country{
         }
         return false; // No record found
     } 
+
+    //Reading single country by Name
+    public function read_singleName(){
+        $query = 'SELECT * FROM '.$this->table.' WHERE name = ? LIMIT 1;';
+       
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->name);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if($row) {
+            $this->id = $row['id']; // Assuming this property exists
+            $this->name = $row['name'];
+            return true; // Indicating a record was found
+        }
+        return false; // No record found
+    }
 
     //create country
     public function createCountry(){
