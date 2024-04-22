@@ -93,6 +93,42 @@ class Clients{
         return false;
     }
 
+    //Updating all client's details using 'PUT' (name, surname, email, password, dob)
+    public function updateAll(){
+        $query = 'UPDATE '.$this->table.'
+        SET email = :email,
+        password = :password,
+        name = :name,
+        surname = :surname,
+        dob = :dob
+        WHERE id = :id;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->surname = htmlspecialchars(strip_tags($this->surname));
+        $this->dob = htmlspecialchars(strip_tags($this->dob));
+        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
+
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':surname', $this->surname);
+        $stmt->bindParam(':dob', $this->dob);
+        //$stmt->bindParam(':roleId', $this->roleId);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
 
     //Updating client details using 'PATCH' (name, surname, email)
     public function update(){

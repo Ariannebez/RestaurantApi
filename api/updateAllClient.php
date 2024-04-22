@@ -10,21 +10,22 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../core/initialize.php');
  
-// Create instance of address
-$address = new address($db);
+// Create instance of User
+$Clients = new Clients($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$address->id = $data->id;
-$address->doorNo = $data->doorNo;
-$address->street = $data->street;
-$address->townId = $data->townId;
-
+$Clients->id = $data->id;
+$Clients->email = $data->email;
+$Clients->password = $data->password;
+$Clients->name = $data->name;
+$Clients->surname = $data->surname;
+$Clients->dob = $data->dob;
 //$Clients->roleId = $data->roleId;
 
-if($address->update()){
-    echo json_encode(array('message' => 'Address updated.'));
+if($Clients->updateAll()){
+    echo json_encode(array('message' => 'Client updated.'));
 }
 else{
-    echo json_encode(array('message' => 'Address not updated.'));
+    echo json_encode(array('message' => 'Client not updated.'));
 }

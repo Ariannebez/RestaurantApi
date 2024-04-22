@@ -87,20 +87,23 @@ class address{
     //Update Address details
     public function update(){
         $query = 'UPDATE '.$this->table.'
-        SET street = :street,
+        SET doorNo = :doorNo,
+        street = :street,
         townId = :townId
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->doorNo = htmlspecialchars(strip_tags($this->doorNo));
         $this->street = htmlspecialchars(strip_tags($this->street));
         $this->townId = htmlspecialchars(strip_tags($this->townId));
     
-        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
+      
 
         //bind thr parameters to request
         $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':doorNo', $this->doorNo);
         $stmt->bindParam(':street', $this->street);
        $stmt->bindParam(':townId', $this->townId); 
       

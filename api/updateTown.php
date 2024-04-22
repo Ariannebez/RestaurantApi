@@ -10,21 +10,19 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../core/initialize.php');
  
-// Create instance of address
-$address = new address($db);
+// Create instance of town
+$town = new town($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$address->id = $data->id;
-$address->doorNo = $data->doorNo;
-$address->street = $data->street;
-$address->townId = $data->townId;
+$town->id = $data->id;
+$town->name = $data->name;
+$town->countryId = $data->countryId;
 
-//$Clients->roleId = $data->roleId;
 
-if($address->update()){
-    echo json_encode(array('message' => 'Address updated.'));
+if($town->update()){
+    echo json_encode(array('message' => 'Town updated.'));
 }
 else{
-    echo json_encode(array('message' => 'Address not updated.'));
+    echo json_encode(array('message' => 'Town not updated.'));
 }

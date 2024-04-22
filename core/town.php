@@ -9,6 +9,7 @@ class town{
     public $id;
     public $name;
     public $countryId;
+    public $countryName;
    
     
 
@@ -33,7 +34,7 @@ class town{
         return $stmt;
     }
 
-    //Reading single address by ID
+    //Reading single town by ID
     public function read_single(){
         //$query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
         $query = 'SELECT t.id, t.name, c.name AS countryName
@@ -81,7 +82,7 @@ class town{
     }
 
 
-    //Update Address details
+    //Update town details
     public function update(){
         $query = 'UPDATE '.$this->table.'
         SET name = :name,
@@ -93,13 +94,11 @@ class town{
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->countryId = htmlspecialchars(strip_tags($this->countryId));
-    
-        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
         //bind thr parameters to request
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':street', $this->street);
-       $stmt->bindParam(':townId', $this->townId); 
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':countryId', $this->countryId); 
       
 
         if($stmt->execute()){
