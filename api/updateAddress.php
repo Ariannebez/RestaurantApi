@@ -20,7 +20,6 @@ $address->doorNo = $data->doorNo;
 $address->street = $data->street;
 $address->townId = $data->townId;
 
-//$Clients->roleId = $data->roleId;
 
 if($address->update()){
     echo json_encode(array('message' => 'Address updated.'));
