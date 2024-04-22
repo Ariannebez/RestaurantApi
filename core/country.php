@@ -16,9 +16,7 @@ class country{
     //Getting all countries from database
     public function read(){
         //Reading query
-        $query = 'SELECT t.id, t.name, c.name AS countryName
-         FROM '.$this->table.' t
-         JOIN country c ON c.id = t.countryId ;';
+        $query = 'SELECT * FROM '.$this->table.';';
         
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
