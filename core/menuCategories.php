@@ -65,18 +65,18 @@ class menuCategory{
         return false; // No record found
     }
 
-    //creating client
+    //creating menu category
     public function create(){
-        $query = "INSERT INTO menuCategory (name) 
-                      VALUES (:name)";
+        $query = "INSERT INTO menuCategory (category) 
+                      VALUES (:category)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
-        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->category = htmlspecialchars(strip_tags($this->category));
 
        // Binding the parameters
-       $stmt->bindParam(':name', $this->name);
+       $stmt->bindParam(':category', $this->category);
       
 
         if ($stmt->execute()){
@@ -90,17 +90,17 @@ class menuCategory{
     //Updating all Category details using 'PUT'
     public function updateAll(){
         $query = 'UPDATE '.$this->table.'
-        SET name = :name
+        SET category = :category
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->category = htmlspecialchars(strip_tags($this->category));
         
         //binding the parameters to request
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':category', $this->category);
     
         if($stmt->execute()){
             return true;

@@ -11,7 +11,7 @@ $country = new country($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$country->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Client ID not provided.']));
+$country->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'ID not provided.']));
 
 $found = $country->read_single();
 

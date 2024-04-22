@@ -7,28 +7,28 @@ header('Content-Type: application/json');
 include_once('../core/initialize.php');
 
 // Create instance of User
-$country = new country($db);
+$menuCategory = new menuCategory($db);
 
 //calling a function from clients instance
-$result = $country->read();
+$result = $menuCategory->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $country_list=array();
-    $country_list['data'] = array();
+    $menuCategory_list=array();
+    $menuCategory_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $country_item = array(
+        $menuCategory_item = array(
             'id' => $id,
-            'name' => $name 
+            'category' => $category 
         );
         //add current user into list 
-        array_push($country_list['data'], $country_item);
+        array_push($menuCategory_list['data'], $menuCategory_item);
     }
 
-    echo json_encode($country_list);
+    echo json_encode($menuCategory_list);
 }
 else{
     echo json_encode(array('message'=>'No Country found'));
