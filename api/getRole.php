@@ -7,29 +7,29 @@ header('Content-Type: application/json');
 include_once('../core/initialize.php');
 
 // Create instance of User
-$country = new country($db);
+$role = new role($db);
 
 //calling a function from clients instance
-$result = $country->read();
+$result = $role->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $country_list=array();
-    $country_list['data'] = array();
+    $role_list=array();
+    $role_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $town_item = array(
+        $role_item = array(
             'id' => $id,
             'name' => $name 
         );
-        //add current user into list 
-        array_push($country_list['data'], $town_item);
+        //add current roles into list 
+        array_push($role_list['data'], $role_item);
     }
 
-    echo json_encode($country_list);
+    echo json_encode($role_list);
 }
 else{
-    echo json_encode(array('message'=>'No Country found'));
+    echo json_encode(array('message'=>'No role found'));
 }
