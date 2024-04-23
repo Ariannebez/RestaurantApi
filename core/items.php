@@ -19,7 +19,7 @@ class items{
         $this->conn = $db; 
     }
 
-    //Getting all items from database where roleid is 1
+    //Getting all items from database 
     public function read(){
         //Reading query
         $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
@@ -52,8 +52,25 @@ class items{
         return $stmt;
     }
 
-    //Reading single client by ID
-    public function read_single(){
+    //Getting all items from database where Category is 2 (pasta)
+    public function readPasta(){
+        //Reading query
+        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
+        FROM '.$this->table.' i
+        JOIN menuCategory m ON m.id = i.categoryId
+        WHERE i.categoryId = 2;';
+        
+        //Prepare statement
+        $stmt =  $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    //Reading single item by id
+    public function read_singleId(){
         $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
     
         $stmt = $this->conn->prepare($query);
@@ -62,18 +79,37 @@ class items{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($row) {
-            $this->roleId = $row['roleId']; // Assuming this property exists
-            $this->email = $row['email'];
-            $this->password = $row['password'];
+            $this->id = $row['id']; // Assuming this property exists
             $this->name = $row['name'];
-            $this->surname = $row['surname'];
-            $this->dob = $row['dob'];
-            $this->addressId = $row['addressId'];
-            $this->roleId = $row['roleId'];
+            $this->des = $row['des'];
+            $this->price = $row['price'];
+            $this->categoryId = $row['categoryId'];
+            
             return true; // Indicating a record was found
         }
         return false; // No record found
-    } 
+    }
+
+    //Reading single item by name
+    public function read_single(){
+        $query = 'SELECT * FROM '.$this->table.' WHERE name = ? LIMIT 1;';
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->name);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if($row) {
+            $this->id = $row['id']; // Assuming this property exists
+            $this->name = $row['name'];
+            $this->des = $row['des'];
+            $this->price = $row['price'];
+            $this->categoryId = $row['categoryId'];
+            
+            return true; // Indicating a record was found
+        }
+        return false; // No record found
+    }
 
     //creating client
     public function create(){
