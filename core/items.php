@@ -12,6 +12,7 @@ class items{
     public $des;
     public $price;
     public $categoryId;
+    public $category;
     
     // user constructor
     public function __construct($db){
@@ -21,10 +22,10 @@ class items{
     //Getting all items from database where roleid is 1
     public function read(){
         //Reading query
-        $query = 'SELECT * FROM '.$this->table.';';
+        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
+        FROM '.$this->table.' i
+        JOIN menuCategory m ON m.id = i.categoryId;';
         
-
-
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
 
@@ -37,7 +38,10 @@ class items{
     //Getting all items from database where Category is 1 (starters)
     public function readStarters(){
         //Reading query
-        $query = 'SELECT * FROM '.$this->table.' i WHERE i.categoryId = 1;';
+        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
+        FROM '.$this->table.' i
+        JOIN menuCategory m ON m.id = i.categoryId
+        WHERE i.categoryId = 1;';
         
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
