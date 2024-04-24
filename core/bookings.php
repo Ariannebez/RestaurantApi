@@ -38,112 +38,13 @@ class bookings{
         return $stmt;
     }
 
-    //Getting all items from database where Category is 1 (starters)
-    public function readStarters(){
-        //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId
-        WHERE i.categoryId = 1;';
-        
-        //Prepare statement
-        $stmt =  $this->conn->prepare($query);
-
-        //Execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-    //Getting all items from database where Category is 2 (pasta)
-    public function readPasta(){
-        //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId
-        WHERE i.categoryId = 2;';
-        
-        //Prepare statement
-        $stmt =  $this->conn->prepare($query);
-
-        //Execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-    //Getting all items from database where Category is 3 (meat)
-    public function readMeat(){
-        //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId
-        WHERE i.categoryId = 3;';
-        
-        //Prepare statement
-        $stmt =  $this->conn->prepare($query);
-
-        //Execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-    //Getting all items from database where Category is 4 (fish)
-    public function readFish(){
-        //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId
-        WHERE i.categoryId = 4;';
-        
-        //Prepare statement
-        $stmt =  $this->conn->prepare($query);
-
-        //Execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-    //Getting all items from database where Category is 5 (kids)
-    public function readKids(){
-        //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId
-        WHERE i.categoryId = 5;';
-        
-        //Prepare statement
-        $stmt =  $this->conn->prepare($query);
-
-        //Execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-    //Getting all items from database where Category is 6 (Desserts)
-    public function readDesserts(){
-        //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId
-        WHERE i.categoryId = 6;';
-        
-        //Prepare statement
-        $stmt =  $this->conn->prepare($query);
-
-        //Execute query
-        $stmt->execute();
-
-        return $stmt;
-    }
-
-
-    //Reading single item by id
+    //Reading single booking by id
     public function read_singleId(){
-        $query = 'SELECT * FROM '.$this->table.' WHERE id = ? LIMIT 1;';
+        $query = 'SELECT b.id, b.numberOfpeople, b.date, b.time, b.userId, b.bookingIdStatus, s.name AS bookingStatus, u.name
+        FROM '.$this->table.' b
+        JOIN bookingStatus s ON s.id = b.bookingIdStatus
+        JOIN users u ON u.id = b.userId
+        WHERE b.id = ? LIMIT 1;';
     
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->id);
@@ -151,20 +52,27 @@ class bookings{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($row) {
-            $this->id = $row['id']; // Assuming this property exists
+            $this->id = $row['id']; 
+            $this->numberOfpeople = $row['numberOfpeople'];
+            $this->date = $row['date'];
+            $this->time = $row['time'];
+            $this->userId = $row['userId'];
+            $this->bookingIdStatus = $row['bookingIdStatus'];
+            $this->bookingStatus = $row['bookingStatus'];
             $this->name = $row['name'];
-            $this->des = $row['des'];
-            $this->price = $row['price'];
-            $this->categoryId = $row['categoryId'];
             
             return true; // Indicating a record was found
         }
         return false; // No record found
     }
 
-    //Reading single item by name
-    public function read_single(){
-        $query = 'SELECT * FROM '.$this->table.' WHERE name = ? LIMIT 1;';
+    //Reading single booking by name
+    public function read_singleName(){
+        $query = 'SELECT b.id, b.numberOfpeople, b.date, b.time, b.userId, b.bookingIdStatus, s.name AS bookingStatus, u.name
+        FROM '.$this->table.' b
+        JOIN bookingStatus s ON s.id = b.bookingIdStatus
+        JOIN users u ON u.id = b.userId
+        WHERE u.name = ? LIMIT 1;';
     
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->name);
@@ -172,11 +80,14 @@ class bookings{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
         if($row) {
-            $this->id = $row['id']; // Assuming this property exists
+            $this->id = $row['id']; 
+            $this->numberOfpeople = $row['numberOfpeople'];
+            $this->date = $row['date'];
+            $this->time = $row['time'];
+            $this->userId = $row['userId'];
+            $this->bookingIdStatus = $row['bookingIdStatus'];
+            $this->bookingStatus = $row['bookingStatus'];
             $this->name = $row['name'];
-            $this->des = $row['des'];
-            $this->price = $row['price'];
-            $this->categoryId = $row['categoryId'];
             
             return true; // Indicating a record was found
         }
