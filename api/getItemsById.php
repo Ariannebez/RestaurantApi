@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 // Initialize API
 include_once('../core/initialize.php');
 
-// Create instance of User
+// Create instance of item
 $items = new items($db);
 
 

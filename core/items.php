@@ -111,29 +111,24 @@ class items{
         return false; // No record found
     }
 
-    //creating client
+    //creating item
     public function create(){
-        $query = "INSERT INTO users (email, password, name, surname, dob, addressId, roleId) 
-                      VALUES (:email, :password, :name, :surname, :dob, :addressId, 1)";
+        $query = "INSERT INTO items (name, des, price, categoryId) 
+                      VALUES (:name, :des, :price, :categoryId)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password)); // Consider hashing
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->surname = htmlspecialchars(strip_tags($this->surname));
-        $this->dob = htmlspecialchars(strip_tags($this->dob));
-        $this->addressId = htmlspecialchars(strip_tags($this->addressId));
-        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
+        $this->des = htmlspecialchars(strip_tags($this->des));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
 
-       // Binding the parameters, including addressId and roleId
-       $stmt->bindParam(':email', $this->email);
-       $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
+       // Binding the parameters
        $stmt->bindParam(':name', $this->name);
-       $stmt->bindParam(':surname', $this->surname);
-       $stmt->bindParam(':dob', $this->dob);
-       $stmt->bindParam(':addressId', $this->addressId);
+       $stmt->bindParam(':des', $this->des);
+       $stmt->bindParam(':price', $this->price);
+       $stmt->bindParam(':categoryId', $this->categoryId);
 
         if ($stmt->execute()){
             return true;
@@ -143,93 +138,20 @@ class items{
         return false;
     }
 
-    //Updating all client's details using 'PUT' (name, surname, email, password, dob)
-    public function updateAll(){
+    //update price
+    public function updatePrice(){
         $query = 'UPDATE '.$this->table.'
-        SET email = :email,
-        password = :password,
-        name = :name,
-        surname = :surname,
-        dob = :dob
+        SET price = :price
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->surname = htmlspecialchars(strip_tags($this->surname));
-        $this->dob = htmlspecialchars(strip_tags($this->dob));
-        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
-
-        //binding the parameters to request
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':surname', $this->surname);
-        $stmt->bindParam(':dob', $this->dob);
-        //$stmt->bindParam(':roleId', $this->roleId);
-
-        if($stmt->execute()){
-            return true;
-        }
-
-        printf('Error: %s. \n', $stmt->error);
-        return false;
-    }
-
-    //Updating client details using 'PATCH' (name, surname, email)
-    public function update(){
-        $query = 'UPDATE '.$this->table.'
-        SET email = :email,
-        name = :name,
-        surname = :surname
-        WHERE id = :id;';
-
-        $stmt = $this->conn->prepare($query);
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        //$this->password = htmlspecialchars(strip_tags($this->password));
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->surname = htmlspecialchars(strip_tags($this->surname));
-        //$this->dob = htmlspecialchars(strip_tags($this->dob));
-        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
-
-        //binding the parameters to request
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':email', $this->email);
-        //$stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':surname', $this->surname);
-        //$stmt->bindParam(':dob', $this->dob);
-        //$stmt->bindParam(':roleId', $this->roleId);
-
-        if($stmt->execute()){
-            return true;
-        }
-
-        printf('Error: %s. \n', $stmt->error);
-        return false;
-    }
-
-    //update password
-    public function updatePassword(){
-        $query = 'UPDATE '.$this->table.'
-        SET password = :password
-        WHERE id = :id;';
-
-        $stmt = $this->conn->prepare($query);
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->password = htmlspecialchars(strip_tags($this->password));
+        $this->price = htmlspecialchars(strip_tags($this->price));
         
         //binding the parameters to request
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':password', $this->password); // Ensure password is securely hashed
-        
+        $stmt->bindParam(':price', $this->price);
 
         if($stmt->execute()){
             return true;
