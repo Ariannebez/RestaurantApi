@@ -14,6 +14,7 @@ class bookings{
     public $userId;
     public $bookingIdStatus;
     public $bookingStatus;
+    public $name;
     
     // user constructor
     public function __construct($db){
@@ -23,9 +24,10 @@ class bookings{
     //Getting all items from database 
     public function read(){
         //Reading query
-        $query = 'SELECT b.id, b.numberOfpeople, b.date, b.time, b.bookingIdStatus, s.name AS bookingStatus
+        $query = 'SELECT b.id, b.numberOfpeople, b.date, b.time, b.userId, b.bookingIdStatus, s.name AS bookingStatus, u.name
         FROM '.$this->table.' b
-        JOIN bookingStatus s ON s.id = b.bookingIdStatus;';
+        JOIN bookingStatus s ON s.id = b.bookingIdStatus
+        JOIN users u ON u.id = b.userId;';
         
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
