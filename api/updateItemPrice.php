@@ -22,7 +22,7 @@ $items->price = $data->price;
 if(!$items->exists()) {
     echo json_encode(array('message' => 'ID not good. No such Item with this id.'));
 } else {
-    // Try to delete the client
+    // Updating price
     if($items->updatePrice()){
         echo json_encode(array('message' => 'Price updated.'));
     } else {

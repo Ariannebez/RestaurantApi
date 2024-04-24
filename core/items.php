@@ -138,6 +138,67 @@ class items{
         return false;
     }
 
+    //Updating name, des and category id using PATCH
+    public function updateAll(){
+        $query = 'UPDATE '.$this->table.'
+        SET name = :name,
+        des = :des,
+        price = :price,
+        categoryId = :categoryId
+        WHERE id = :id ;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->des = htmlspecialchars(strip_tags($this->des));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':des', $this->des);
+        $stmt->bindParam(':price', $this->price);
+        $stmt->bindParam(':categoryId', $this->categoryId);
+    
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
+    //Updating name, des and category id using PATCH
+    public function update(){
+        $query = 'UPDATE '.$this->table.'
+        SET name = :name,
+        des = :des,
+        categoryId = :categoryId
+        WHERE id = :id ;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->des = htmlspecialchars(strip_tags($this->des));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':des', $this->des);
+        $stmt->bindParam(':categoryId', $this->categoryId);
+    
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
     //update price
     public function updatePrice(){
         $query = 'UPDATE '.$this->table.'
