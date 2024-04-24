@@ -222,7 +222,7 @@ class items{
         return false;
     }
 
-    //Deleting client by id 
+    //Deleting item by id 
     public function delete(){
         $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
 
