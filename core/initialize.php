@@ -16,3 +16,4 @@ require_once(CORE_PATH.DS.'country.php');
 require_once(CORE_PATH.DS.'role.php');
 require_once(CORE_PATH.DS.'menuCategories.php');
 require_once(CORE_PATH.DS.'items.php');
+require_once(CORE_PATH.DS.'bookings.php');

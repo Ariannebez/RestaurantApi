@@ -1,18 +1,19 @@
 <?php
 
-class items{
+class bookings{
     //properties for database stuff
     private $conn;
-    private $table = 'items';
+    private $table = 'booking';
     
     
     //properties of user
     public $id;
-    public $name;
-    public $des;
-    public $price;
-    public $categoryId;
-    public $category;
+    public $numberOfpeople;
+    public $date;
+    public $time;
+    public $userId;
+    public $bookingIdStatus;
+    public $bookingStatus;
     
     // user constructor
     public function __construct($db){
@@ -22,9 +23,9 @@ class items{
     //Getting all items from database 
     public function read(){
         //Reading query
-        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
-        FROM '.$this->table.' i
-        JOIN menuCategory m ON m.id = i.categoryId;';
+        $query = 'SELECT b.id, b.numberOfpeople, b.date, b.time, b.bookingIdStatus, s.name AS bookingStatus
+        FROM '.$this->table.' b
+        JOIN bookingStatus s ON s.id = b.bookingIdStatus;';
         
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
