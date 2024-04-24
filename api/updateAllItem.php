@@ -26,8 +26,8 @@ if(!$items->exists()) {
 } else {
     // Updating item
     if($items->updateAll()){
-        echo json_encode(array('message' => 'Price updated.'));
+        echo json_encode(array('message' => 'All details updated.'));
     } else {
-        echo json_encode(array('message' => 'Price Not updated.'));
+        echo json_encode(array('message' => 'Details Not updated.'));
     }
 }
