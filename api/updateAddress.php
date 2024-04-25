@@ -21,9 +21,13 @@ $address->street = $data->street;
 $address->townId = $data->townId;
 
 
-if($address->update()){
-    echo json_encode(array('message' => 'Address updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Address not updated.'));
+if(!$address->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such address with this id.'));
+} else {
+    // Updating item
+    if($address->update()){
+        echo json_encode(array('message' => 'Address updated.'));
+    } else {
+        echo json_encode(array('Address Not updated.'));
+    }
 }

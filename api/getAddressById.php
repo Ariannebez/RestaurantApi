@@ -11,7 +11,7 @@ $address = new address($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$address->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Client ID not provided.']));
+$address->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Address ID not provided.']));
 
 $found = $address->read_single();
 
