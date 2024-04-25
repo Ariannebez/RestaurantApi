@@ -21,7 +21,7 @@ $bookings->time = $data->time;
 if(!$bookings->exists()) {
     echo json_encode(array('message' => 'ID not good. No such booking with this id.'));
 } else {
-    // Updating item
+    // Updating Time
     if($bookings->updateTime()){
         echo json_encode(array('message' => ' Time is updated.'));
     } else {
