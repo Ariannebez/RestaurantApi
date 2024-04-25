@@ -19,9 +19,13 @@ $country->id = $data->id;
 $country->name = $data->name;
 
 
-if($country->update()){
-    echo json_encode(array('message' => 'Country updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Country not updated.'));
+if(!$country->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+} else {
+    // Updating item
+    if($country->update()){
+        echo json_encode(array('message' => 'Country updated.'));
+    } else {
+        echo json_encode(array('Country Not updated.'));
+    }
 }

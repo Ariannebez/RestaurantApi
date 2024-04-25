@@ -11,7 +11,7 @@ $menuCategory = new menuCategory($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$menuCategory->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Client ID not provided.']));
+$menuCategory->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Category ID not provided.']));
 
 $found = $menuCategory->read_single();
 

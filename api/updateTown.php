@@ -19,10 +19,13 @@ $town->id = $data->id;
 $town->name = $data->name;
 $town->countryId = $data->countryId;
 
-
-if($town->update()){
-    echo json_encode(array('message' => 'Town updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Town not updated.'));
+if(!$town->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such role with this id.'));
+} else {
+    // Updating item
+    if($town->update()){
+        echo json_encode(array('message' => 'Role updated.'));
+    } else {
+        echo json_encode(array('Role Not updated.'));
+    }
 }

@@ -18,10 +18,13 @@ $data = json_decode(file_get_contents('php://input'));
 $role->id = $data->id;
 $role->name = $data->name;
 
-
-if($role->update()){
-    echo json_encode(array('message' => 'Role updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Role not updated.'));
+if(!$role->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such role with this id.'));
+} else {
+    // Updating item
+    if($role->update()){
+        echo json_encode(array('message' => 'Role updated.'));
+    } else {
+        echo json_encode(array('Role Not updated.'));
+    }
 }

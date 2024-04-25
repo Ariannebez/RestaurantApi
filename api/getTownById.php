@@ -11,7 +11,7 @@ $town = new town($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$town->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Client ID not provided.']));
+$town->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Town ID not provided.']));
 
 $found = $town->read_single();
 
