@@ -23,9 +23,13 @@ $Clients->surname = $data->surname;
 $Clients->dob = $data->dob;
 //$Clients->roleId = $data->roleId;
 
-if($Clients->updateAll()){
-    echo json_encode(array('message' => 'Client updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Client not updated.'));
+if(!$Clients->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+} else {
+    // Updating item
+    if($Clients->updateAll()){
+        echo json_encode(array('message' => 'Password updated.'));
+    } else {
+        echo json_encode(array('Password Not updated.'));
+    }
 }

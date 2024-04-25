@@ -38,5 +38,5 @@ if($num > 0){
     echo json_encode($bookings_list);
 }
 else{
-    echo json_encode(array('message'=>'No Clients found'));
+    echo json_encode(array('message'=>'No Booking found'));
 }

@@ -17,15 +17,18 @@ $data = json_decode(file_get_contents('php://input'));
 
 $Clients->id = $data->id;
 $Clients->email = $data->email;
-//$Clients->password = $data->password;
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
-//$Clients->dob = $data->dob;
-//$Clients->roleId = $data->roleId;
 
-if($Clients->update()){
-    echo json_encode(array('message' => 'Client updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Client not updated.'));
-}
+
+if(!$Clients->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+} else 
+    // Updating item
+    if($Clients->update()){
+        echo json_encode(array('message' => 'Client details updated successfully.'));
+    } else {
+        echo json_encode(array('message' => 'Failed to update client details. Role ID must be 1.'));
+    }
+  
+

@@ -18,10 +18,13 @@ $data = json_decode(file_get_contents('php://input'));
 $Clients->id = $data->id;
 $Clients->password = $data->password;
 
-
-if($Clients->updatePassword()){
-    echo json_encode(array('message' => 'Password updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Password not updated.'));
+if(!$Clients->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+} else {
+    // Updating item
+    if($Clients->updatePassword()){
+        echo json_encode(array('message' => 'Password updated.'));
+    } else {
+        echo json_encode(array('Password Not updated.'));
+    }
 }
