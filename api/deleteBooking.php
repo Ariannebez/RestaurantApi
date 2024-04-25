@@ -18,7 +18,7 @@ $bookingId = null;
 if (isset($_GET['id'])) {
     $bookingId = $_GET['id'];
 } else {
-    echo json_encode(array('status' => 'error', 'message' => 'No ID provided.'));
+    echo json_encode(array('error', 'message' => 'No ID provided.'));
     exit; // Stop script execution after sending the response
 }
 
@@ -27,12 +27,12 @@ $bookings->id = $bookingId;
 
 // First, check if the booking exists
 if (!$bookings->exists()) {
-    echo json_encode(array('status' => 'error', 'message' => 'Booking not found.'));
+    echo json_encode(array('message' => 'Booking not found.'));
 } else {
     // Try to delete the booking
     if ($bookings->delete()) {
-        echo json_encode(array('status' => 'success', 'message' => 'Booking deleted.'));
+        echo json_encode(array('message' => 'Booking deleted.'));
     } else {
-        echo json_encode(array('status' => 'error', 'message' => 'Failed to delete booking.'));
+        echo json_encode(array('message' => 'Failed to delete booking.'));
     }
 }
