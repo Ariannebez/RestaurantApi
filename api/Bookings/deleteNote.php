@@ -8,32 +8,31 @@ header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
  
-// Create instance of User
-$Clients = new Clients($db);
+// Create instance of address
+$note = new note($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
 // Getting ID from the query string
-$clientId = isset($_GET['id']) ? $_GET['id'] : null;
+$noteId = isset($_GET['id']) ? $_GET['id'] : null;
 
-if($clientId === null) {
+if($noteId === null) {
     echo json_encode(array('message' => 'No ID provided.'));
     exit; // Stop script execution after sending the response
 }
 
-// Setting client ID
-$Clients->id = $clientId;
+$note->id = $noteId;
 
 // First, check if the client exists
-if(!$Clients->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such client.'));
+if(!$note->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such note with this id.'));
 } else {
     // Try to delete the client
-    if($Clients->delete()) {
-        echo json_encode(array('message' => 'Client Deleted.'));
+    if($note->delete()) {
+        echo json_encode(array('message' => 'Note Deleted.'));
     } else {
-        echo json_encode(array('message' => 'Client Not Deleted.'));
+        echo json_encode(array('message' => 'Note Not Deleted.'));
     }
 }

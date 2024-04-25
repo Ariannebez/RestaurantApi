@@ -8,23 +8,23 @@ header('Access-Control-Allow-Methods: PATCH');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
  
 // Create instance of item
-$note = new note($db);
+$bookings = new bookings($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$note->id = $data->id;
-$note->note = $data->note;
+$bookings->id = $data->id;
+$bookings->date = $data->date;
 
-if(!$note->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such note with this id.'));
+if(!$bookings->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such booking with this id.'));
 } else {
     // Updating Date
-    if($note->updateNote()){
-        echo json_encode(array('message' => 'Note is updated.'));
+    if($bookings->updateDate()){
+        echo json_encode(array('message' => 'Date is updated.'));
     } else {
-        echo json_encode(array('message' => 'Note is Not updated.'));
+        echo json_encode(array('message' => 'Date is Not updated.'));
     }
 }
