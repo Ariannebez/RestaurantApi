@@ -11,6 +11,7 @@ include_once('../core/initialize.php');
  
 // Create instance of item
 $bookings = new bookings($db);
+$note = new note($db);
  
 $data = json_decode(file_get_contents('php://input'));
  
@@ -20,10 +21,24 @@ $bookings->time = $data->time;
 $bookings->userId = $data->userId;
 $bookings->bookingIdStatus = $data->bookingIdStatus;
 
- 
-if($bookings->create()){
-    echo json_encode(array('message' => 'Booking created.'));
-}
-else{
-    echo json_encode(array('message' => 'Booking not created.'));
+$note->note = $data->note;
+
+// Start a transaction
+$db->beginTransaction();
+
+// Create booking
+if ($bookings->create()) {
+    // Retrieve the ID of the last inserted booking
+    $bookingId = $db->lastInsertId();
+
+    // Create the booking note with the associated bookingId
+    if ($note->createNote($bookingId)) {
+        echo json_encode(array('message' => 'Booking and note created successfully.'));
+        $db->commit(); // Commit the transaction
+    } else {
+        echo json_encode(array('message' => 'Failed to create note.'));
+        $db->rollBack(); // Rollback the transaction if note creation fails
+    }
+} else {
+    echo json_encode(array('message' => 'Failed to create booking.'));
 }

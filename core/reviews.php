@@ -10,6 +10,7 @@ class Reviews{
     public $id;
     public $des;
     public $userId;
+    public $name;
     
 
     // user constructor
@@ -17,11 +18,14 @@ class Reviews{
         $this->conn = $db; 
     }
 
-    //Getting all client from database where roleid is 1
+    //Getting all reviews from database joining with user on name
     public function read(){
         //Reading query
-        $query = 'SELECT * FROM '.$this->table.' ;';
-        
+        $query = 'SELECT r.id, r.des, r.userId, u.name 
+        FROM '.$this->table.' r
+        JOIN users u ON u.id = r.userId;';
+
+
         //Prepare statement
         $stmt =  $this->conn->prepare($query);
 
@@ -32,8 +36,11 @@ class Reviews{
     }
 
     //Reading single client by name
-    public function read_single(){
-        $query = 'SELECT * FROM '.$this->table.' WHERE name = ? LIMIT 1;';
+    public function read_singleName(){
+        $query = 'SELECT r.id, r.des, r.userId, u.name 
+        FROM '.$this->table.' r
+        JOIN users u ON u.id = r.userId
+        WHERE u.name = ? LIMIT 1;';
     
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $this->name);
