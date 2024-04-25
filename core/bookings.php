@@ -16,12 +16,12 @@ class bookings{
     public $bookingStatus;
     public $name;
     
-    // user constructor
+    // Booking constructor
     public function __construct($db){
         $this->conn = $db; 
     }
 
-    //Getting all items from database 
+    //Getting all bookings from database 
     public function read(){
         //Reading query
         $query = 'SELECT b.id, b.numberOfpeople, b.date, b.time, b.userId, b.bookingIdStatus, s.name AS bookingStatus, u.name
@@ -94,24 +94,26 @@ class bookings{
         return false; // No record found
     }
 
-    //creating item
+    //creating booking
     public function create(){
-        $query = "INSERT INTO items (name, des, price, categoryId) 
-                      VALUES (:name, :des, :price, :categoryId)";
+        $query = "INSERT INTO booking (numberOfpeople, date, time, userId, bookingIdStatus) 
+                      VALUES (:numberOfpeople, :date, :time, :userId, :bookingIdStatus)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->des = htmlspecialchars(strip_tags($this->des));
-        $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        $this->numberOfpeople = htmlspecialchars(strip_tags($this->numberOfpeople));
+        $this->date = htmlspecialchars(strip_tags($this->date));
+        $this->time = htmlspecialchars(strip_tags($this->time));
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->bookingIdStatus = htmlspecialchars(strip_tags($this->bookingIdStatus));
 
        // Binding the parameters
-       $stmt->bindParam(':name', $this->name);
-       $stmt->bindParam(':des', $this->des);
-       $stmt->bindParam(':price', $this->price);
-       $stmt->bindParam(':categoryId', $this->categoryId);
+       $stmt->bindParam(':numberOfpeople', $this->numberOfpeople);
+       $stmt->bindParam(':date', $this->date);
+       $stmt->bindParam(':time', $this->time);
+       $stmt->bindParam(':userId', $this->userId);
+       $stmt->bindParam(':bookingIdStatus', $this->bookingIdStatus);
 
         if ($stmt->execute()){
             return true;
@@ -121,58 +123,29 @@ class bookings{
         return false;
     }
 
-    //Updating name, des and category id using PATCH
-    public function updateAll(){
-        $query = 'UPDATE '.$this->table.'
-        SET name = :name,
-        des = :des,
-        price = :price,
-        categoryId = :categoryId
-        WHERE id = :id ;';
-
-        $stmt = $this->conn->prepare($query);
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->des = htmlspecialchars(strip_tags($this->des));
-        $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
-        
-        //binding the parameters to request
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':des', $this->des);
-        $stmt->bindParam(':price', $this->price);
-        $stmt->bindParam(':categoryId', $this->categoryId);
-    
-        if($stmt->execute()){
-            return true;
-        }
-
-        printf('Error: %s. \n', $stmt->error);
-        return false;
-    }
-
-    //Updating name, des and category id using PATCH
+    //Updating number of people, date, time and booking id status using the PATCH
     public function update(){
         $query = 'UPDATE '.$this->table.'
-        SET name = :name,
-        des = :des,
-        categoryId = :categoryId
+        SET numberOfpeople = :numberOfpeople,
+        date = :date,
+        time = :time,
+        bookingIdStatus = :bookingIdStatus
         WHERE id = :id ;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->des = htmlspecialchars(strip_tags($this->des));
-        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        $this->numberOfpeople = htmlspecialchars(strip_tags($this->numberOfpeople));
+        $this->date = htmlspecialchars(strip_tags($this->date));
+        $this->time = htmlspecialchars(strip_tags($this->time));
+        $this->bookingIdStatus = htmlspecialchars(strip_tags($this->bookingIdStatus));
         
         //binding the parameters to request
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':des', $this->des);
-        $stmt->bindParam(':categoryId', $this->categoryId);
+        $stmt->bindParam(':numberOfpeople', $this->numberOfpeople);
+        $stmt->bindParam(':date', $this->date);
+        $stmt->bindParam(':time', $this->time);
+        $stmt->bindParam(':bookingIdStatus', $this->bookingIdStatus);
     
         if($stmt->execute()){
             return true;
@@ -182,20 +155,45 @@ class bookings{
         return false;
     }
 
-    //update price
-    public function updatePrice(){
+    
+
+    //update date
+    public function updateDate(){
         $query = 'UPDATE '.$this->table.'
-        SET price = :price
+        SET date = :date
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->date = htmlspecialchars(strip_tags($this->date));
         
         //binding the parameters to request
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':price', $this->price);
+        $stmt->bindParam(':date', $this->date);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
+     //update time
+     public function updateTime(){
+        $query = 'UPDATE '.$this->table.'
+        SET time = :time
+        WHERE id = :id;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->time = htmlspecialchars(strip_tags($this->time));
+        
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':time', $this->time);
 
         if($stmt->execute()){
             return true;

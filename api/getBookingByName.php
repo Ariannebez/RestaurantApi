@@ -11,7 +11,7 @@ $bookings = new bookings($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$bookings->name = isset($_GET['name']) ? $_GET['name'] : die(json_encode(['message' => 'Item ID not provided.']));
+$bookings->name = isset($_GET['name']) ? $_GET['name'] : die(json_encode(['message' => 'Booking ID not provided.']));
 
 $found = $bookings->read_singleName();
 
