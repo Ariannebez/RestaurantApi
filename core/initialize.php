@@ -18,3 +18,4 @@ require_once(CORE_PATH.DS.'menuCategories.php');
 require_once(CORE_PATH.DS.'items.php');
 require_once(CORE_PATH.DS.'bookings.php');
 require_once(CORE_PATH.DS.'bookingStatus.php');
+require_once(CORE_PATH.DS.'reviews.php');
