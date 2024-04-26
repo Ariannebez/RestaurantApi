@@ -7,18 +7,18 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
  
-// Create instance of area
-$area = new area($db);
+// Create instance of User
+$table = new table($db);
  
 $data = json_decode(file_get_contents('php://input'));
  
-$area->tableNo = $data->tableNo;
-$area->location = $data->location;
+$table->bookingStatusId = $data->bookingStatusId;
+$table->areaId = $data->areaId;
 
 
-if($area->create()){
+if($table->create()){
     echo json_encode(array('message' => 'Table created.'));
 }
 else{
