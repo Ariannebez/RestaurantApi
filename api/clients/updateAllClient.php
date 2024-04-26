@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents('php://input'));
 
 $Clients->id = $data->id;
 $Clients->email = $data->email;
-$Clients->password = $data->password;
+$Clients->password = password_hash($data->password, PASSWORD_DEFAULT);
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
 $Clients->dob = $data->dob;

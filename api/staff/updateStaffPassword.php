@@ -16,12 +16,16 @@ $staff = new staff($db);
 $data = json_decode(file_get_contents('php://input'));
 
 $staff->id = $data->id;
-$staff->password = $data->password;
+$staff->password = password_hash($data->password, PASSWORD_DEFAULT);
 
 
-if($staff->updatePassword()){
-    echo json_encode(array('message' => 'Password updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Password not updated.'));
+if(!$staff->exists()) {
+    echo json_encode(array('message' => 'ID not good. No staff with this id.'));
+} else {
+    // Updating item
+    if($staff->updatePassword()){
+        echo json_encode(array('message' => 'Password updated.'));
+    } else {
+        echo json_encode(array('Pasword Not updated.'));
+    }
 }
