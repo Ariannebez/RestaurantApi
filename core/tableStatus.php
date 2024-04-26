@@ -51,18 +51,20 @@ class tableStatus {
 
     //creating item
     public function create(){
-        $query = "INSERT INTO `table` (bookingStatusId, areaId) 
-                      VALUES (:bookingStatusId, :areaId)";
+        $query = "INSERT INTO tableStatus (status, tableNo, tableId) 
+                      VALUES (:status, :tableNo, :tableId)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
-        $this->bookingStatusId = htmlspecialchars(strip_tags($this->bookingStatusId));
-        $this->areaId = htmlspecialchars(strip_tags($this->areaId));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->tableNo = htmlspecialchars(strip_tags($this->tableNo));
+        $this->tableId = htmlspecialchars(strip_tags($this->tableId));
 
        // Binding the parameters
-       $stmt->bindParam(':bookingStatusId', $this->bookingStatusId);
-       $stmt->bindParam(':areaId', $this->areaId);
+       $stmt->bindParam(':status', $this->status);
+       $stmt->bindParam(':tableNo', $this->tableNo);
+       $stmt->bindParam(':tableId', $this->tableId);
 
         if ($stmt->execute()){
             return true;

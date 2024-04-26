@@ -49,18 +49,18 @@ class area {
 
     //creating item
     public function create(){
-        $query = "INSERT INTO `table` (bookingStatusId, areaId) 
-                      VALUES (:bookingStatusId, :areaId)";
+        $query = "INSERT INTO area (tableNo, location) 
+                      VALUES (:tableNo, :location)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
-        $this->bookingStatusId = htmlspecialchars(strip_tags($this->bookingStatusId));
-        $this->areaId = htmlspecialchars(strip_tags($this->areaId));
+        $this->tableNo = htmlspecialchars(strip_tags($this->tableNo));
+        $this->location = htmlspecialchars(strip_tags($this->location));
 
        // Binding the parameters
-       $stmt->bindParam(':bookingStatusId', $this->bookingStatusId);
-       $stmt->bindParam(':areaId', $this->areaId);
+       $stmt->bindParam(':tableNo', $this->tableNo);
+       $stmt->bindParam(':location', $this->location);
 
         if ($stmt->execute()){
             return true;
@@ -70,23 +70,24 @@ class area {
         return false;
     }
 
-    //Updating table using 'PUT'
+    //Updating table number and area using 'PUT'
     public function update(){
         $query = 'UPDATE '.$this->table.'
-        SET bookingStatusId = :bookingStatusId,
-        areaId = :areaId
+        SET tableNo = :tableNo,
+        location = :location
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
+        // Cleaning data
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->bookingStatusId = htmlspecialchars(strip_tags($this->bookingStatusId));
-        $this->areaId = htmlspecialchars(strip_tags($this->areaId));
-      
-        //binding the parameters to request
-        $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':bookingStatusId', $this->bookingStatusId);
-        $stmt->bindParam(':areaId', $this->areaId);
+        $this->tableNo = htmlspecialchars(strip_tags($this->tableNo));
+        $this->location = htmlspecialchars(strip_tags($this->location));
+
+       // Binding the parameters
+       $stmt->bindParam(':id', $this->id);
+       $stmt->bindParam(':tableNo', $this->tableNo);
+       $stmt->bindParam(':location', $this->location);
     
         if($stmt->execute()){
             return true;
