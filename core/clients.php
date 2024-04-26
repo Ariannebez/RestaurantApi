@@ -70,7 +70,7 @@ class Clients{
 
         // Cleaning data
         $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password)); // Consider hashing
+        //$this->password = htmlspecialchars(strip_tags($this->password)); // Consider hashing
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->surname = htmlspecialchars(strip_tags($this->surname));
         $this->dob = htmlspecialchars(strip_tags($this->dob));
