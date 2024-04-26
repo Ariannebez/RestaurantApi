@@ -24,3 +24,5 @@ require_once(CORE_PATH.DS.'gallery.php');
 require_once(CORE_PATH.DS.'resLocation.php');
 require_once(CORE_PATH.DS.'dailySpecial.php');
 require_once(CORE_PATH.DS.'table.php');
+require_once(CORE_PATH.DS.'area.php');
+require_once(CORE_PATH.DS.'tableStatus.php');
