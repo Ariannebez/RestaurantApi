@@ -62,22 +62,18 @@ class table {
 
     //creating item
     public function create(){
-        $query = "INSERT INTO items (name, des, price, categoryId) 
-                      VALUES (:name, :des, :price, :categoryId)";
+        $query = "INSERT INTO `table` (bookingStatusId, areaId) 
+                      VALUES (:bookingStatusId, :areaId)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->des = htmlspecialchars(strip_tags($this->des));
-        $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        $this->bookingStatusId = htmlspecialchars(strip_tags($this->bookingStatusId));
+        $this->areaId = htmlspecialchars(strip_tags($this->areaId));
 
        // Binding the parameters
-       $stmt->bindParam(':name', $this->name);
-       $stmt->bindParam(':des', $this->des);
-       $stmt->bindParam(':price', $this->price);
-       $stmt->bindParam(':categoryId', $this->categoryId);
+       $stmt->bindParam(':bookingStatusId', $this->bookingStatusId);
+       $stmt->bindParam(':areaId', $this->areaId);
 
         if ($stmt->execute()){
             return true;
@@ -87,7 +83,72 @@ class table {
         return false;
     }
 
-    //Delete
+    //Updating table using 'PUT'
+    public function update(){
+        $query = 'UPDATE '.$this->table.'
+        SET bookingStatusId = :bookingStatusId,
+        areaId = :areaId
+        WHERE id = :id;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->bookingStatusId = htmlspecialchars(strip_tags($this->bookingStatusId));
+        $this->areaId = htmlspecialchars(strip_tags($this->areaId));
+      
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':bookingStatusId', $this->bookingStatusId);
+        $stmt->bindParam(':areaId', $this->areaId);
+    
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
+    //Deleting 
+    public function delete(){
+        $query = 'DELETE FROM '.$this->table.' WHERE id = :id;'; 
+
+        $stmt = $this->conn->prepare($query);
+
+        //clean data sent by user
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        $stmt->bindParam(':id', $this->id);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+
+    }
+
+    //Checking if client exists
+    public function exists() {
+        $query = 'SELECT COUNT(*) FROM '.$this->table.' WHERE id = :id';
+    
+        // Preparing statement
+        $stmt = $this->conn->prepare($query);
+    
+        // Binding ID
+        $stmt->bindParam(':id', $this->id);
+    
+        // Execute query
+        $stmt->execute();
+    
+        // Checking if any rows are returned
+        if($stmt->fetchColumn() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
     
