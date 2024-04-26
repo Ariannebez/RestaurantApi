@@ -23,3 +23,4 @@ require_once(CORE_PATH.DS.'reviews.php');
 require_once(CORE_PATH.DS.'gallery.php');
 require_once(CORE_PATH.DS.'resLocation.php');
 require_once(CORE_PATH.DS.'dailySpecial.php');
+require_once(CORE_PATH.DS.'table.php');

@@ -64,21 +64,28 @@ class special{
         return false; // No record found
     } 
 
-    //creating client
+    //creating daily special
     public function create(){
-        $query = "INSERT INTO reviews (des, userId) 
-                      VALUES (:des, :userId)";
+        $query = "INSERT INTO dailySpecial (img, item, des, price, categoryId) 
+                      VALUES (:img, :item, :des, :price, :categoryId)";
 
         $stmt = $this->conn->prepare($query);
 
         // Cleaning data
+        $this->img = htmlspecialchars(strip_tags($this->img));
+        $this->item = htmlspecialchars(strip_tags($this->item));
         $this->des = htmlspecialchars(strip_tags($this->des));
-        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
 
 
        // Binding the parameters, including addressId and roleId
+       $stmt->bindParam(':img', $this->img);
+       $stmt->bindParam(':item', $this->item);
        $stmt->bindParam(':des', $this->des);
-       $stmt->bindParam(':userId', $this->userId);
+       $stmt->bindParam(':price', $this->price);
+       $stmt->bindParam(':categoryId', $this->categoryId);
+       
        
         if ($stmt->execute()){
             return true;
@@ -88,21 +95,56 @@ class special{
         return false;
     }
 
-    //Updating role using 'PUT'
-    public function update(){
+     //Updating all details using PUT
+     public function updateAll(){
         $query = 'UPDATE '.$this->table.'
-        SET des = :des
+        SET img = :img,
+        item = :item,
+        des = :des,
+        price = :price,
+        categoryId = :categoryId
+        WHERE id = :id ;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->img = htmlspecialchars(strip_tags($this->img));
+        $this->item = htmlspecialchars(strip_tags($this->item));
+        $this->des = htmlspecialchars(strip_tags($this->des));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->categoryId = htmlspecialchars(strip_tags($this->categoryId));
+        
+        //binding the parameters to request
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':img', $this->img);
+        $stmt->bindParam(':item', $this->item);
+        $stmt->bindParam(':des', $this->des);
+        $stmt->bindParam(':price', $this->price);
+        $stmt->bindParam(':categoryId', $this->categoryId);
+    
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n', $stmt->error);
+        return false;
+    }
+
+    //Updating price
+    public function updatePrice(){
+        $query = 'UPDATE '.$this->table.'
+        SET price = :price
         WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->des = htmlspecialchars(strip_tags($this->des));
+        $this->price = htmlspecialchars(strip_tags($this->price));
       
 
         //binding the parameters to request
         $stmt->bindParam(':id', $this->id);
-        $stmt->bindParam(':des', $this->des);
+        $stmt->bindParam(':price', $this->price);
     
         if($stmt->execute()){
             return true;
