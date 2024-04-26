@@ -16,7 +16,7 @@ $address = new address($db);
 $data = json_decode(file_get_contents('php://input'));
  
 $staff->email = $data->email;
-$staff->password = $data->password;
+$staff->password = password_hash($data->password, PASSWORD_DEFAULT);
 $staff->name = $data->name;
 $staff->surname = $data->surname;
 $staff->dob = $data->dob;
