@@ -11,7 +11,21 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Client Endpoint's 
 
-    *
+
+#### Displaying Data
+
+#### Getting all clients.
+http://localhost:8888/RestaurantApi/api/clients/getClients.php
+
+This enpoint is getting all users from the database were role id is 1.
+
+
+#### Getting clientds by Id.
+http://localhost:8888/RestaurantApi/api/clients/getClientById.php?id=22
+
+#### Varblies 
+id
+### Respones 
 
 ## Staff Endpoint's
 

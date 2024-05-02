@@ -4,33 +4,33 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
 
 // Create instance of User
-$reviews = new reviews($db);
+$gallery = new gallery($db);
 
 //calling a function from clients instance
-$result = $reviews->read();
+$result = $gallery->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $reviews_list=array();
-    $reviews_list['data'] = array();
+    $gallery_list=array();
+    $gallery_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $reviews_item = array(
+        $gallery_item = array(
             'id' => $id,
+            'img' => $img,
             'des' => $des,
-            'userId' => $userId,
-            'name' => $name,
+            
         );
         //add current roles into list 
-        array_push($reviews_list['data'], $reviews_item);
+        array_push($gallery_list['data'], $gallery_item);
     }
 
-    echo json_encode($reviews_list);
+    echo json_encode($gallery_list);
 }
 else{
     echo json_encode(array('message'=>'No reviews found'));

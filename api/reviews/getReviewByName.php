@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // Initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
 
 // Create instance of User
 $reviews = new reviews($db);
