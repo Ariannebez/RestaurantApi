@@ -4,13 +4,13 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
 
 // Create instance of User
 $items = new items($db);
 
 //calling a function from clients instance
-$result = $items->readStarters();
+$result = $items->readPasta();
 
 $num = $result->rowCount();
 

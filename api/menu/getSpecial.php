@@ -4,36 +4,36 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
 
 // Create instance of User
-$items = new items($db);
+$special = new special($db);
 
 //calling a function from clients instance
-$result = $items->read();
+$result = $special->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $items_list=array();
-    $items_list['data'] = array();
+    $special_list=array();
+    $special_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $items_item = array(
+        $special_item = array(
             'id' => $id,
-            'name' => $name,
+            'img' => $img,
+            'item' => $item,
             'des' => $des,
             'price' => $price,
-            'categoryId' => $categoryId,
-            'category' => $category
+            'category' => $category,
         );
         //add current roles into list 
-        array_push($items_list['data'], $items_item);
+        array_push($special_list['data'], $special_item);
     }
 
-    echo json_encode($items_list);
+    echo json_encode($special_list);
 }
 else{
-    echo json_encode(array('message'=>'No items found'));
+    echo json_encode(array('message'=>'No role found'));
 }

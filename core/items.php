@@ -137,6 +137,22 @@ class items{
         return $stmt;
     }
 
+    //Getting all items from database where Category is 7 (drinks)
+    public function readDrinks(){
+        //Reading query
+        $query = 'SELECT i.id, i.name, i.des, i.price, i.categoryId, m.category
+        FROM '.$this->table.' i
+        JOIN menuCategory m ON m.id = i.categoryId
+        WHERE i.categoryId = 7;';
+        
+        //Prepare statement
+        $stmt =  $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
 
     //Reading single item by id
     public function read_singleId(){

@@ -8,24 +8,25 @@ header('Access-Control-Allow-Methods: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
  
 // Create instance of item
-$items = new items($db);
+$special = new special($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$items->id = $data->id;
-$items->name = $data->name;
-$items->des = $data->des;
-$items->price = $data->price;
-$items->categoryId = $data->categoryId;
+$special->id = $data->id;
+$special->img = $data->img;
+$special->item = $data->item;
+$special->des = $data->des;
+$special->price = $data->price;
+$special->categoryId = $data->categoryId;
 
-if(!$items->exists()) {
+if(!$special->exists()) {
     echo json_encode(array('message' => 'ID not good. No such Item with this id.'));
 } else {
     // Updating item
-    if($items->updateAll()){
+    if($special->updateAll()){
         echo json_encode(array('message' => 'All details updated.'));
     } else {
         echo json_encode(array('message' => 'Details Not updated.'));
