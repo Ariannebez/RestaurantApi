@@ -4,32 +4,32 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
 
 // Create instance of User
-$role = new role($db);
+$country = new country($db);
 
 //calling a function from clients instance
-$result = $role->read();
+$result = $country->read();
 
 $num = $result->rowCount();
 
 if($num > 0){
-    $role_list=array();
-    $role_list['data'] = array();
+    $country_list=array();
+    $country_list['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $role_item = array(
+        $country_item = array(
             'id' => $id,
             'name' => $name 
         );
-        //add current roles into list 
-        array_push($role_list['data'], $role_item);
+        //add current user into list 
+        array_push($country_list['data'], $country_item);
     }
 
-    echo json_encode($role_list);
+    echo json_encode($country_list);
 }
 else{
-    echo json_encode(array('message'=>'No role found'));
+    echo json_encode(array('message'=>'No Country found'));
 }

@@ -4,16 +4,16 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 // Initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
 
 // Create instance of User
 $town = new town($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$town->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Town ID not provided.']));
+$town->name = isset($_GET['name']) ? $_GET['name'] : die(json_encode(['message' => 'Client ID not provided.']));
 
-$found = $town->read_single();
+$found = $town->read_singleName();
 
 if (!$found) {
     // If no client was found

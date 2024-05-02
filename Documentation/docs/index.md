@@ -2,16 +2,22 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+## Overview
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+* `get` - Every endpoitn that beings with get, it's getting the data from the database and displaying it.
+* `create` - Start the live-reloading docs server.
+* `update` - Build the documentation site.
+* `delete` - Print help message and exit.
 
-## Project layout
+## Client Endpoint's 
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    *
+
+## Staff Endpoint's
+
+   
+
+
+## Get Client Endpoint 
+
+   

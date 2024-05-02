@@ -8,24 +8,24 @@ header('Access-Control-Allow-Methods: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
  
 // Create instance of town
-$country = new country($db);
+$town = new town($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$country->id = $data->id;
-$country->name = $data->name;
+$town->id = $data->id;
+$town->name = $data->name;
+$town->countryId = $data->countryId;
 
-
-if(!$country->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+if(!$town->exists()) {
+    echo json_encode(array('message' => 'ID not good. No such role with this id.'));
 } else {
     // Updating item
-    if($country->update()){
-        echo json_encode(array('message' => 'Country updated.'));
+    if($town->update()){
+        echo json_encode(array('message' => 'Role updated.'));
     } else {
-        echo json_encode(array('Country Not updated.'));
+        echo json_encode(array('Role Not updated.'));
     }
 }

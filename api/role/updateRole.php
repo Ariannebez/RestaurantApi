@@ -8,22 +8,21 @@ header('Access-Control-Allow-Methods: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
  
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../core/initialize.php');
  
 // Create instance of town
-$town = new town($db);
+$role = new role($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$town->id = $data->id;
-$town->name = $data->name;
-$town->countryId = $data->countryId;
+$role->id = $data->id;
+$role->name = $data->name;
 
-if(!$town->exists()) {
+if(!$role->exists()) {
     echo json_encode(array('message' => 'ID not good. No such role with this id.'));
 } else {
     // Updating item
-    if($town->update()){
+    if($role->update()){
         echo json_encode(array('message' => 'Role updated.'));
     } else {
         echo json_encode(array('Role Not updated.'));
