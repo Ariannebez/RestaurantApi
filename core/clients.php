@@ -135,17 +135,14 @@ class Clients{
         name = :name,
         surname = :surname
         WHERE id = :id
-        AND roleId = 1;;';
+        ;';
 
         $stmt = $this->conn->prepare($query);
 
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->email = htmlspecialchars(strip_tags($this->email));
-        //$this->password = htmlspecialchars(strip_tags($this->password));
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->surname = htmlspecialchars(strip_tags($this->surname));
-        //$this->dob = htmlspecialchars(strip_tags($this->dob));
-        //$this->roleId = htmlspecialchars(strip_tags($this->roleId));
 
         //binding the parameters to request
         $stmt->bindParam(':id', $this->id);
@@ -225,4 +222,27 @@ class Clients{
         }
     }
 
+    public function getRoleId() {
+        // Query to fetch the roleId of the client
+        $query = 'SELECT roleId FROM ' . $this->table . ' WHERE id = :id';
+
+        // Prepare the query
+        $stmt = $this->conn->prepare($query);
+
+        // Bind the parameter
+        $stmt->bindParam(':id', $this->id);
+
+        // Execute the query
+        $stmt->execute();
+
+        // Fetch the roleId
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if row exists and return the roleId
+        if ($row) {
+            return $row['roleId'];
+        } else {
+            return null;
+        }
+    }
 }

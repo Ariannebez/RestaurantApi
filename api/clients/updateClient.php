@@ -20,15 +20,18 @@ $Clients->email = $data->email;
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
 
-
-if(!$Clients->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
-} else 
+// Check if client exists and roleId is 1
+if (!$Clients->exists()) {
+    echo json_encode(array('message' => 'ID not valid. No such client with this ID.'));
+} elseif ($Clients->getRoleId() != 1) {
+    echo json_encode(array('message' => 'Failed to update client details. Role ID must be 1.'));
+} else {
     // Updating item
-    if($Clients->update()){
+    if ($Clients->update()) {
         echo json_encode(array('message' => 'Client details updated successfully.'));
     } else {
-        echo json_encode(array('message' => 'Failed to update client details. Role ID must be 1.'));
+        echo json_encode(array('message' => 'Failed to update client details.'));
     }
+}
   
 

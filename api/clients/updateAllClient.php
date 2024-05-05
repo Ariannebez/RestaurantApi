@@ -21,15 +21,18 @@ $Clients->password = password_hash($data->password, PASSWORD_DEFAULT);
 $Clients->name = $data->name;
 $Clients->surname = $data->surname;
 $Clients->dob = $data->dob;
-//$Clients->roleId = $data->roleId;
 
-if(!$Clients->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+
+// Check if client exists and roleId is 1
+if (!$Clients->exists()) {
+    echo json_encode(array('message' => 'ID not valid. No such client with this ID.'));
+} elseif ($Clients->getRoleId() != 1) {
+    echo json_encode(array('message' => 'Failed to update client details. Role ID must be 1.'));
 } else {
     // Updating item
-    if($Clients->updateAll()){
-        echo json_encode(array('message' => 'Password updated.'));
+    if ($Clients->updateAll()) {
+        echo json_encode(array('message' => 'Client details updated successfully.'));
     } else {
-        echo json_encode(array('Password Not updated.'));
+        echo json_encode(array('message' => 'Failed to update client details.'));
     }
 }
