@@ -224,4 +224,28 @@ class staff{
         }
     }
 
+    public function getRoleId() {
+        // Query to fetch the roleId of the client
+        $query = 'SELECT roleId FROM ' . $this->table . ' WHERE id = :id';
+
+        // Prepare the query
+        $stmt = $this->conn->prepare($query);
+
+        // Bind the parameter
+        $stmt->bindParam(':id', $this->id);
+
+        // Execute the query
+        $stmt->execute();
+
+        // Fetch the roleId
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if row exists and return the roleId
+        if ($row) {
+            return $row['roleId'];
+        } else {
+            return null;
+        }
+    }
+
 }

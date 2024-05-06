@@ -1,27 +1,14 @@
-# Restaurant API
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Overview
-
-* `get` - Retrieves data from the database, either all records, by ID, or by name.
-* `create` - Creates a new row in the database using `POST`.
-* `update` - Updates either a whole row using `PUT` or a specific column of a row using `PATCH`.
-* `delete` - Deletes a row from the database by ID.
+# Staff
 
 <br />
 
-## Clients 
+## Getting all staff
 
-<br />
-
-### Getting all clietns
-
-This endpoint retrieves a list of clients from the database where roleId is 1.
+This endpoint retrieves a list of staff from the database where roleId is 2.
 
 ### Endpoint
 
-`GET / clients` `http://localhost:8888/RestaurantApi/api/clients/getClients.php` 
+`GET / staff` `http://localhost:8888/RestaurantApi/api/staff/getStaff.php` 
 
 ### Success Response
 
@@ -37,7 +24,7 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
                 "surname": "Doe",
                 "dob": "1990-01-01",
                 "addressId": "123",
-                "roleId": "1"
+                "roleId": "2"
             },
             {
                 "id": "2",
@@ -47,7 +34,7 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
                 "surname": "Doe",
                 "dob": "1992-05-10",
                 "addressId": "789",
-                "roleId": "1"
+                "roleId": "2"
             }
         ]
     }
@@ -59,27 +46,28 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
 - **Content:** 
     ```json
     {
-        "message": "No Clients found"
+        "message": "No Staff found"
     }
     ```
-     ```json
+    
+    ```json
     {
-       "Error: Access denied because this Id has a diffrent role."
+       "Error": "Access denied because this Id has a diffrent role."
     }
     ```
 
 <br />
 
-## Single Client 
-This endpoint retrieves information about a single client based on their ID.
+## Single Staff
+This endpoint retrieves information about a single worker based on their ID.
 
 ### Endpoint
 
-`GET /clientById` `http://localhost:8888/RestaurantApi/api/clients/getClientById.php?id=22`
+`GET /staffById` `http://localhost:8888/RestaurantApi/api/Staff/getStaffById.php?id=20`
 
 ### Variables
 
-- `id`: The unique identifier of the client. (Required)
+- `id`: The unique identifier of the worker. (Required)
 
 ### Success Response
 
@@ -93,7 +81,7 @@ This endpoint retrieves information about a single client based on their ID.
         "surname": "Doe",
         "dob": "1990-01-01",
         "addressId": "123",
-        "roleId": "1"
+        "roleId": "2"
     }
     ```
 
@@ -103,15 +91,15 @@ This endpoint retrieves information about a single client based on their ID.
 - **Content:** 
     ```json
     {
-        "message": "Client not found."
+        "message": "Staff not found."
     }
     ```
-
+    
 - **Code:** 400 Bad Request
 - **Content:** 
     ```json
     {
-        "message": "Client ID not provided."
+        "message": "Staff ID not provided."
     }
     ```
 
@@ -125,12 +113,12 @@ This endpoint retrieves information about a single client based on their ID.
 
 <br />
 
-## Create Client 
-This endpoint allows the creation of a new client along with their address.
+## Create staff
+This endpoint allows the creation of a new worker along with their address.
 
 ### Endpoint
 
-`POST /clients` `http://localhost:8888/RestaurantApi/api/clients/createClient.php`
+`POST /staff` `http://localhost:8888/RestaurantApi/api/staff/createStaff.php`
 
 ### Variables
 
@@ -143,7 +131,7 @@ This endpoint allows the creation of a new client along with their address.
 * street 
 * townId
 
-Below is an exmaple on how to create a new client (all variables are required)
+Below is an exmaple on how to create a new worker (all variables are required)
 
 ### Body
 
@@ -165,7 +153,7 @@ Below is an exmaple on how to create a new client (all variables are required)
 - **Content:** 
     ```json
     {
-        "message": "Client created."
+        "message": "Staff created."
     }
     ```
 
@@ -199,19 +187,19 @@ Below is an exmaple on how to create a new client (all variables are required)
 - **Content:** 
     ```json
     {
-    "error": "Client not created."
+    "error": "Staff not created."
     }
     ```
 
 <br />
 
-## Update All Client Details
+## Update All Staff Details
 
-This endpoint updates all the details of an existing client.
+This endpoint updates all the details of an existing worker.
 
 ### Endpoint
 
-`PUT / UpdateAll` `http://localhost:8888/RestaurantApi/api/clients/updateAllClient.php`
+`PUT / UpdateAll` `http://localhost:8888/RestaurantApi/api/staff/updateAllStaff.php`
 
 ### Variables
 
@@ -228,7 +216,7 @@ All varbiables are required
 
 ```json
 {
-    "id": "client_id", // Id has to be of an existing client 
+    "id": "staff_id", // Id has to be of an existing client 
     "email": "updated@example.com",
     "password": "updated_password",
     "name": "Updated Name",
@@ -243,7 +231,7 @@ All varbiables are required
 - **Content:** 
     ```json
     {
-        "message": "Client updated."
+        "message": "Staff updated."
     }
     ```
 
@@ -253,31 +241,31 @@ All varbiables are required
 - **Content:** 
     ```json
     {
-        "message": "ID not good. No such client with this id."
+        "message": "ID not good. No such staff with this id."
     }
     ```
     
     ```json
     {
-        "message": "Failed to update client details. Role ID must be 1."
+        "message": "Failed to update staff details. Role ID must be 2."
     }
     ```
 
     ```json
     {
-        "message": "Client Not updated."
+        "message": "Staff Not updated."
     }
     ```
 
 <br />
 
-## Update Client Details
+## Update Staff Details
 
-This endpoint updates  the email, name and surname of an existing client.
+This endpoint updates  the email, name and surname of an existing worker.
 
 ### Endpoint
 
-`PATCH / update` `http://localhost:8888/RestaurantApi/api/clients/updateClient.php`
+`PATCH / update` `http://localhost:8888/RestaurantApi/api/staff/updateStaff.php`
 
 ### Variables
 
@@ -292,7 +280,7 @@ All varbiables are required
 
 ```json
 {
-    "id": "client_id",
+    "id": "staff_id",
     "email": "updated@example.com",
     "name": "Updated Name",
     "surname": "Updated Surname"
@@ -301,9 +289,9 @@ All varbiables are required
 
 ### Response
 
- **200 OK:** If the client details are updated successfully.
-- **400 Bad Request:** If the provided ID is invalid or the client does not exist.
-- **422 Unprocessable Entity:** If the role ID of the client is not 1.
+ **200 OK:** If the staff details are updated successfully.
+- **400 Bad Request:** If the provided ID is invalid or the staff does not exist.
+- **422 Unprocessable Entity:** If the role ID of the staff is not 2.
 
 ### Success Response
 
@@ -311,7 +299,7 @@ All varbiables are required
 - **Content:** 
     ```json
     {
-    "message": "Client details updated successfully."
+    "message": "Staff details updated successfully."
     }
     ```
 
@@ -321,12 +309,12 @@ All varbiables are required
 - **Content:** 
     ```json
     {
-    "message": "ID not good. No such client with this id."
+    "message": "ID not good. No such staff with this id."
     }
     ```
     ```json
     {
-        "message": "Failed to update client details. Role ID must be 1."
+        "message": "Failed to update staff details. Role ID must be 2."
     }
     ```
 
@@ -338,7 +326,7 @@ This endpoint allows updating a client's password using a PATCH request.
 
 ### Endpoint
 
-`PATCH / updatePassword` `http://localhost:8888/RestaurantApi/api/clients/updateClientPassword.php`
+`PATCH / updatePassword` `http://localhost:8888/RestaurantApi/api/staff/updateStaffPassword.php`
 
 ### Variables
 
@@ -351,7 +339,7 @@ Varbiable is required
 
 ```json
 {
-    "id": "client_id",
+    "id": "staff_id",
     "password": "updated_password"
     
 }
@@ -360,8 +348,8 @@ Varbiable is required
 ### Response
 
 - **200 OK:** If the password is updated successfully.
-- **400 Bad Request:** If the provided ID is invalid or the client does not exist.
-- **422 Unprocessable Entity:** If the role ID of the client is not 1.
+- **400 Bad Request:** If the provided ID is invalid or the staff does not exist.
+- **422 Unprocessable Entity:** If the role ID of the client is not 2.
 
 ### Success Response
 
@@ -379,24 +367,24 @@ Varbiable is required
 - **Content:** 
     ```json
     {
-    "message": "ID not valid. No such client with this ID."
+    "message": "ID not valid. No such staff with this ID."
     }
     ```
     ```json
     {
-        "message": "Failed to update password. Role ID must be 1."
+        "message": "Failed to update password. Role ID must be 2."
     }
     ```
 
 <br />
 
-## Delete Client 
+## Delete Staff 
 
-This endpoint allows deleting a client using a DELETE request.
+This endpoint allows deleting a staff using a DELETE request.
 
 ### Endpoint
 
-`DELETE / deleteClient` `http://localhost:8888/RestaurantApi/api/clients/deleteClient.php?id=90`
+`DELETE / deleteStaff` `http://localhost:8888/RestaurantApi/api/staff/deleteStaff.php?id=90`
 
 ### Variables
 
@@ -408,9 +396,9 @@ Id varbiables is required
 
 The endpoint returns a JSON response with a message indicating the status of the delete operation.
 
-- **200 OK:** If the client is deleted successfully.
+- **200 OK:** If the staff is deleted successfully.
 - **400 Bad Request:** If no ID is provided.
-- **404 Not Found:** If the provided ID does not correspond to any existing client.
+- **404 Not Found:** If the provided ID does not correspond to any existing staff.
 
 ### Success Response
 
@@ -418,7 +406,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 - **Content:** 
     ```json
     {
-    "message": "Client Deleted."
+    "message": "Staff Deleted."
     }
     ```
 
@@ -428,19 +416,11 @@ The endpoint returns a JSON response with a message indicating the status of the
 - **Content:** 
     ```json
     {
-    "message": "ID not valid. No such client with this ID."
+    "message": "ID not valid. No such staff with this ID."
     }
     ```
     ```json
     {
-        "message": "Client Not Deleted"
+        "message": "Staff Not Deleted"
     }
     ```
-
-
-   
-
-
-
-
-   

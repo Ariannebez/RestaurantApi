@@ -21,11 +21,18 @@ $staff->password = password_hash($data->password, PASSWORD_DEFAULT);
 $staff->name = $data->name;
 $staff->surname = $data->surname;
 $staff->dob = $data->dob;
-//$Clients->roleId = $data->roleId;
 
-if($staff->updateAll()){
-    echo json_encode(array('message' => 'Staff details updated.'));
+// Check if client exists and roleId is 1
+if (!$staff->exists()) {
+    echo json_encode(array('message' => 'ID not valid. No such staff with this ID.'));
+} elseif ($staff->getRoleId() != 2) {
+    echo json_encode(array('message' => 'Failed to update staff details. Role ID must be 2.'));
+} else {
+    // Updating item
+    if ($staff->updateAll()) {
+        echo json_encode(array('message' => 'Staff details updated successfully.'));
+    } else {
+        echo json_encode(array('message' => 'Failed to update staff details.'));
+    }
 }
-else{
-    echo json_encode(array('message' => 'Staff not updated.'));
-}
+  

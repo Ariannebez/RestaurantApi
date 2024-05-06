@@ -20,9 +20,16 @@ $staff->email = $data->email;
 $staff->name = $data->name;
 $staff->surname = $data->surname;
 
-if($staff->update()){
-    echo json_encode(array('message' => 'Client updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Client not updated.'));
+// Check if staff exists and roleId is 2
+if (!$staff->exists()) {
+    echo json_encode(array('message' => 'ID not valid. No such staff with this ID.'));
+} elseif ($staff->getRoleId() != 2) {
+    echo json_encode(array('message' => 'Failed to update staff details. Role ID must be 2.'));
+} else {
+    // Updating staff
+    if ($staff->update()) {
+        echo json_encode(array('message' => 'Staff details updated successfully.'));
+    } else {
+        echo json_encode(array('message' => 'Failed to update staff details.'));
+    }
 }

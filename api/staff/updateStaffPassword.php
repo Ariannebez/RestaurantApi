@@ -18,14 +18,16 @@ $data = json_decode(file_get_contents('php://input'));
 $staff->id = $data->id;
 $staff->password = password_hash($data->password, PASSWORD_DEFAULT);
 
-
-if(!$staff->exists()) {
-    echo json_encode(array('message' => 'ID not good. No staff with this id.'));
+// Check if client exists and roleId is 1
+if (!$staff->exists()) {
+    echo json_encode(array('message' => 'ID not valid. No such staff with this ID.'));
+} elseif ($staff->getRoleId() != 2) {
+    echo json_encode(array('message' => 'Failed to update password details. Role ID must be 2.'));
 } else {
     // Updating item
-    if($staff->updatePassword()){
-        echo json_encode(array('message' => 'Password updated.'));
+    if ($staff->updatePassword()) {
+        echo json_encode(array('message' => 'Password updated successfully.'));
     } else {
-        echo json_encode(array('Pasword Not updated.'));
+        echo json_encode(array('message' => 'Failed to update password.'));
     }
 }
