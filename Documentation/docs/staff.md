@@ -1,6 +1,6 @@
 # Staff
 
-<br />
+<br>
 
 ## Getting all staff
 
@@ -59,7 +59,7 @@ This endpoint retrieves a list of staff from the database where roleId is 2.
     }
 ```
 
-<br />
+<br>
 
 ## Single Staff
 This endpoint retrieves information about a single worker based on their ID.
@@ -114,7 +114,7 @@ This endpoint retrieves information about a single worker based on their ID.
     }
 ```
 
-<br />
+<br>
 
 ## Create staff
 This endpoint allows the creation of a new worker along with their address.
@@ -198,7 +198,7 @@ Below is an exmaple on how to create a new worker (all variables are required)
     }
 ```
 
-<br />
+<br>
 
 ## Update All Staff Details
 
@@ -264,7 +264,7 @@ All varbiables are required
     }
 ```
 
-<br />
+<br>
 
 ## Update Staff Details
 
@@ -326,7 +326,7 @@ All varbiables are required
     }
 ```
 
-<br />
+<br>
 
 ## Update Password
 
@@ -384,7 +384,7 @@ Varbiable is required
     }
 ```
 
-<br />
+<br>
 
 ## Delete Staff 
 

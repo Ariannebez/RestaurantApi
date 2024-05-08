@@ -1,6 +1,6 @@
 # Address
 
-<br />
+<br>
 
 ## Getting All Addresses
 
@@ -41,7 +41,7 @@ This endpoint retrieves a list of all addresses from the database.
     }
 ```
 
-<br />
+<br>
 
 ## Getting Address by ID
 
@@ -86,7 +86,7 @@ This endpoint retrieves information about a single address based on its ID.
     }
 ```
 
-<br />
+<br>
 
 # Updating Address
 

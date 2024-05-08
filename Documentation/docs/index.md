@@ -9,11 +9,11 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `update` - Updates either a whole row using `PUT` or a specific column of a row using `PATCH`.
 * `delete` - Deletes a row from the database by ID.
 
-<br />
+<br>
 
 ### Clients 
 
-<br />
+<br>
 
 ## Getting all clietns
 
@@ -70,7 +70,7 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
     }
 ```
 
-<br />
+<br>
 
 ## Single Client 
 This endpoint retrieves information about a single client based on their ID.
@@ -125,7 +125,7 @@ This endpoint retrieves information about a single client based on their ID.
     }
 ```
 
-<br />
+<br>
 
 ## Create Client 
 This endpoint allows the creation of a new client along with their address.
@@ -205,7 +205,7 @@ Below is an exmaple on how to create a new client (all variables are required)
     }
 ```
 
-<br />
+<br>
 
 ## Update All Client Details
 
@@ -271,7 +271,7 @@ All varbiables are required
     }
 ```
 
-<br />
+<br>
 
 ## Update Client Details
 
@@ -332,7 +332,7 @@ All varbiables are required
     }
 ```
 
-<br />
+<br>
 
 ## Update Password
 
@@ -390,7 +390,7 @@ Varbiable is required
     }
 ```
 
-<br />
+<br>
 
 ## Delete Client 
 

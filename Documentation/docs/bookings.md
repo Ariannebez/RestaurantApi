@@ -1,6 +1,6 @@
 # Bookings
 
-<br/>
+<br>
 
 ## Get All Bookings
 
@@ -52,7 +52,7 @@ This endpoint retrieves a list of all bookings from the database.
 }
 ```
 
-<br />
+<br>
 
 ## Get Booking by Name
 
@@ -84,7 +84,7 @@ This endpoint retrieves information about a single booking based on its name.
 }
 ```
 
-<br/>
+<br>
 
 ## Get Booking by ID
 
@@ -134,7 +134,7 @@ This endpoint retrieves information about a single booking based on its ID.
     }
 ```
 
-<br/>
+<br>
 
 ## Get All Booking Status
 
@@ -175,7 +175,7 @@ This endpoint retrieves a list of all booking statuses from the database.
 }
 ```
 
-<br/>
+<br>
 
 ## Create Booking with Note
 
@@ -189,12 +189,12 @@ This endpoint allows creating a new booking along with a note.
 
 All variables are requires.
 
-- `numberOfpeople`: The number of people for the booking.
-- `date`: The date of the booking.
-- `time`: The time of the booking.
-- `userId`: The ID of the user making the booking.
-- `bookingIdStatus`: The ID of the booking status.
-- `note`: The note associated with the booking.
+- `numberOfpeople` : The number of people for the booking.
+- `date` : The date of the booking.
+- `time` : The time of the booking.
+- `userId` : The ID of the user making the booking.
+- `bookingIdStatus` : The ID of the booking status.
+- `note` : The note associated with the booking.
 
 ### Body
 
@@ -235,7 +235,7 @@ All variables are requires.
         "message": "Failed to create note."
     }
 ```
-<br/>
+<br>
 
 ## Create Booking Status
 
@@ -247,7 +247,7 @@ This endpoint allows creating a new booking status.
 
 ### Variables
 
-- `name`: The name of the booking status.
+- `name` : The name of the booking status.
 
 ### Body
 
@@ -279,7 +279,7 @@ This endpoint allows creating a new booking status.
 }
 ```
 
-<br/>
+<br>
 
 ## Update Booking Details
 
@@ -293,11 +293,11 @@ This endpoint allows updating the details of an existing booking.
 
 All variables are required.
 
-- `id`: The ID can't be updated, it's just the unique identifier of the of the booking.
-- `numberOfpeople`: The updated number of people for the booking.
-- `date`: The updated date of the booking.
-- `time`: The updated time of the booking.
-- `bookingIdStatus`: The updated ID of the booking status.
+- `id` : The ID can't be updated, it's just the unique identifier of the of the booking.
+- `numberOfpeople` : The updated number of people for the booking.
+- `date` : The updated date of the booking.
+- `time` : The updated time of the booking.
+- `bookingIdStatus` : The updated ID of the booking status.
 
 ### Body
 
@@ -339,7 +339,7 @@ All variables are required.
 }
 ```
 
-<br/>
+<br>
 
 ## Update Booking Date
 
@@ -351,8 +351,8 @@ This endpoint allows updating the date of an existing booking.
 
 ### Variables
 
-- `id`: The ID of the booking to be updated. (Required)
-- `date`: The updated date of the booking. (Required)
+- `id` : The ID of the booking to be updated. (Required)
+- `date` : The updated date of the booking. (Required)
 
 ### Body
 
@@ -394,7 +394,7 @@ This endpoint allows updating the date of an existing booking.
 }
 ```
 
-<br/>
+<br>
 
 ## Update Booking Time
 
@@ -449,7 +449,7 @@ This endpoint allows updating the time of an existing booking.
 }
 ```
 
-<br/>
+<br>
 
 ## Update Note 
 
@@ -461,8 +461,8 @@ This endpoint allows updating a note.
 
 ### Variables
 
-  - `id`: The unique identifier of the note. (Required)
-  - `note`: The updated note content.
+  - `id` : The unique identifier of the note. (Required)
+  - `note` : The updated note content.
 
 ### Body
 
@@ -504,7 +504,7 @@ This endpoint allows updating a note.
 }
 ```
 
-<br/>
+<br>
 
 ## Update Status 
 
@@ -516,8 +516,8 @@ This endpoint allows updating details of an existing booking status.
 
 ### Variables
 
-  - `id`: The unique identifier of the status. (Required)
-  - `name`: The updated name of the booking status.
+  - `id` : The unique identifier of the status. (Required)
+  - `name` : The updated name of the booking status.
 
 ### Body
 
@@ -559,7 +559,7 @@ This endpoint allows updating details of an existing booking status.
 }
 ```
 
-<br/>
+<br>
 
 ## Delete Booking
 
@@ -570,7 +570,7 @@ This endpoint allows deleting a booking base on it's ID, using a DELETE request.
 `DELETE / deleteBooking` `http://localhost:8888/RestaurantApi/api/bookings/deleteBooking.php?id=90`
 
 ### Variables
-- `id`: The unique identifier of the booking. (Required)
+- `id` : The unique identifier of the booking. (Required)
 
 ### Response
 
@@ -614,7 +614,7 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-<br/>
+<br>
 
 ## Delete Booking Status
 
@@ -625,7 +625,7 @@ This endpoint deletes a booking status based on its ID.
 `DELETE / deleteBookingStatus` `http://localhost:8888/RestaurantApi/api/bookings/deleteBookingStatus.php?id=90`
 
 ### Variables
-- `id`: The unique identifier of the booking staus. (Required)
+- `id` : The unique identifier of the booking staus. (Required)
 
 ### Response
 
@@ -669,7 +669,7 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-<br/>
+<br>
 
 ## Delete Note
 
@@ -680,7 +680,7 @@ This endpoint deletes a note based on its ID.
 `DELETE / deleteNote` `http://localhost:8888/RestaurantApi/api/bookings/deleteNote.php?id=90`
 
 ### Variables
-- `id`: The unique identifier of the note. (Required)
+- `id` : The unique identifier of the note. (Required)
 
 ### Response
 
@@ -707,7 +707,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 ```
 
 - **Code:** 404 Not Found
-  - **Content:** Indicates that the provided note ID does not correspond to any existing notes.
+- **Content:** Indicates that the provided note ID does not correspond to any existing notes.
     
 ```json
     {
@@ -716,7 +716,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 ```
 
 - **Code:** 400 Bad Request
-  - **Content:** 
+- **Content:** 
 
 ```json
     {
