@@ -11,11 +11,11 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 <br />
 
-## Clients 
+### Clients 
 
 <br />
 
-### Getting all clietns
+## Getting all clietns
 
 This endpoint retrieves a list of clients from the database where roleId is 1.
 
@@ -26,7 +26,7 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
 ### Success Response
 
 - **Content:** 
-    ```json
+```json
     {
         "data": [
             {
@@ -51,22 +51,24 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
             }
         ]
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 404 Not Found
 - **Content:** 
-    ```json
+```json
     {
         "message": "No Clients found"
     }
-    ```
-     ```json
+```
+- **Code:** 403 Forbidden
+- **Content:**
+```json
     {
        "Error: Access denied because this Id has a diffrent role."
     }
-    ```
+```
 
 <br />
 
@@ -84,7 +86,7 @@ This endpoint retrieves information about a single client based on their ID.
 ### Success Response
 
 - **Content:** 
-    ```json
+```json
     {
         "id": "1",
         "email": "example@example.com",
@@ -95,33 +97,33 @@ This endpoint retrieves information about a single client based on their ID.
         "addressId": "123",
         "roleId": "1"
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 404 Not Found
 - **Content:** 
-    ```json
+```json
     {
         "message": "Client not found."
     }
-    ```
+```
 
 - **Code:** 400 Bad Request
 - **Content:** 
-    ```json
+```json
     {
         "message": "Client ID not provided."
     }
-    ```
+```
 
 - **Code:** 403 Forbidden
 - **Content:** 
-    ```json
+```json
     {
         "message": "Error: Access denied because this ID has a different role."
     }
-    ```
+```
 
 <br />
 
@@ -134,14 +136,14 @@ This endpoint allows the creation of a new client along with their address.
 
 ### Variables
 
-* email
-* password
-* name
-* surname
-* dob
-* doorNo
-* street 
-* townId
+* `email`
+* `password`
+* `name`
+* `surname`
+* `dob`
+* `doorNo`
+* `street` 
+* `townId`
 
 Below is an exmaple on how to create a new client (all variables are required)
 
@@ -163,45 +165,45 @@ Below is an exmaple on how to create a new client (all variables are required)
 ### Success Response
 
 - **Content:** 
-    ```json
+```json
     {
         "message": "Client created."
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 400 Bad Request
 - **Content:** 
-    ```json
+```json
     {
     "error": "Field is missing or empty."
     }
-    ```
+```
 - **Content:** 
-    ```json
+```json
     {
     "error": "Invalid email format."
     }
-    ```
+```
 - **Content:** 
-    ```json
+```json
     {
     "error": "Invalid date format for dob."
     }
-    ```
+```
 - **Content:** 
-    ```json
+```json
     {
     "error": "Address not created."
     }
-    ```
+```
 - **Content:** 
-    ```json
+```json
     {
     "error": "Client not created."
     }
-    ```
+```
 
 <br />
 
@@ -217,12 +219,12 @@ This endpoint updates all the details of an existing client.
 
 All varbiables are required
 
-* id
-* email
-* password
-* name
-* surname
-* dob
+* `id`
+* `email`
+* `password`
+* `name`
+* `surname`
+* `dob`
 
 ### Body
 
@@ -241,33 +243,33 @@ All varbiables are required
 
 - **Code:** 200 OK
 - **Content:** 
-    ```json
+```json
     {
         "message": "Client updated."
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 400 Bad Request
 - **Content:** 
-    ```json
+```json
     {
         "message": "ID not good. No such client with this id."
     }
-    ```
+```
     
-    ```json
+```json
     {
         "message": "Failed to update client details. Role ID must be 1."
     }
-    ```
+```
 
-    ```json
+```json
     {
         "message": "Client Not updated."
     }
-    ```
+```
 
 <br />
 
@@ -283,10 +285,10 @@ This endpoint updates  the email, name and surname of an existing client.
 
 All varbiables are required
 
-* id
-* email
-* name
-* surname
+* `id`
+* `email`
+* `name`
+* `surname`
 
 #### Body
 
@@ -309,26 +311,26 @@ All varbiables are required
 
 - **Code:** 200 OK
 - **Content:** 
-    ```json
+```json
     {
     "message": "Client details updated successfully."
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 400 Bad Request
 - **Content:** 
-    ```json
+```json
     {
     "message": "ID not good. No such client with this id."
     }
-    ```
-    ```json
+```
+```json
     {
         "message": "Failed to update client details. Role ID must be 1."
     }
-    ```
+```
 
 <br />
 
@@ -344,8 +346,8 @@ This endpoint allows updating a client's password using a PATCH request.
 
 Varbiable is required
 
-* id
-* password
+* `id`
+* `password`
 
 #### Body
 
@@ -367,26 +369,26 @@ Varbiable is required
 
 - **Code:** 200 OK
 - **Content:** 
-    ```json
+```json
     {
     "message": "Password updated successfully."
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 400 Bad Request
 - **Content:** 
-    ```json
+```json
     {
     "message": "ID not valid. No such client with this ID."
     }
-    ```
-    ```json
+```
+```json
     {
         "message": "Failed to update password. Role ID must be 1."
     }
-    ```
+```
 
 <br />
 
@@ -402,7 +404,7 @@ This endpoint allows deleting a client using a DELETE request.
 
 Id varbiables is required
 
-* id
+* `id`
 
 ### Response
 
@@ -416,26 +418,32 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 - **Code:** 200 OK
 - **Content:** 
-    ```json
+
+```json
     {
     "message": "Client Deleted."
     }
-    ```
+```
 
 ### Error Response
 
 - **Code:** 400 Bad Request
 - **Content:** 
-    ```json
+
+```json
     {
     "message": "ID not valid. No such client with this ID."
     }
-    ```
-    ```json
+```
+
+- **Code:** 400 Bad Request
+- **Content:**
+
+```json
     {
         "message": "Client Not Deleted"
     }
-    ```
+```
 
 
    
