@@ -31,5 +31,5 @@ if($num > 0){
     echo json_encode($location_list);
 }
 else{
-    echo json_encode(array('message'=>'No items found'));
+    echo json_encode(array('message'=>'No location found'));
 }
