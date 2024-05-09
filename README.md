@@ -54,6 +54,15 @@ The API operates with the following database tables:
 - **Path:** `core/...`
 - **Purpose:** Includes all the functions required by each class to interact with the database. Each function is named according to its purpose and is called from different endpoints. Each class file contains the respective variables needed by that specific class and a constructor method that establishes the database connection to the respective database table.
 
+Example:
+    Path: `core/clients.php`
+    
+In the `clients.php` class, various functions are defined, each serving a distinct purpose and invoked from different endpoints.
+
+Example:
+- `read()`: The `read()` function, located within the `clients` class, is utilized by the `getClients.php` endpoint. It directs the database to retrieve all available details of clients where the role ID is 1.
+
+Each function within the class constructs a `$query` containing the SQL statements pertinent to that specific database operation. Subsequently, the function prepares and executes the `$stmt` (statement) and forwards the resulting data back to the respective endpoint.
 ### Endpoint Files
 
 - **Path:** `api/.../...`
@@ -63,4 +72,7 @@ The API operates with the following database tables:
 
 - **Endpoint:** `api/clients/createClient.php`
 - **Purpose:** Creates a new row in the users table with the client's details and role ID of 1.
+
+- **Endpoint:** `api/clients/updateClient.php`
+- **Purpose:** This endpoint, denoted by its name `updateClient.php`, is responsible for updating a row in the `users` table, specifically modifying client records where the role ID is 1.
 
