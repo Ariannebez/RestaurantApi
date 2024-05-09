@@ -134,3 +134,60 @@ This endpoint allows updating details of an existing address.
     "Address Not updated."
     }
 ```
+
+<br>
+
+## Delete Address
+
+This endpoint allows deleting a address based on its ID.
+
+### Endpoint
+
+`DELETE /deleteAddress` `http://localhost:8888/RestaurantApi/api/address/deleteAddress.php?id=1`
+
+### Variables
+
+- **id**: The ID of the address to be deleted. (Required)
+
+### Response
+
+The endpoint returns a JSON response with a message indicating the status of the delete operation.
+
+### Success Response
+
+- **Content :** 
+
+```json
+    {
+        "message": "Address Deleted."
+    }
+```
+
+### Error Responses
+
+- **Code:** 400 Bad Request
+- **Content :** 
+ 
+```json
+    {
+        "message": "No ID provided."
+    }
+```
+
+- **Code:** 404 Not Found
+- **Content :** 
+ 
+```json
+    {
+        "message": "ID not good. No such address."
+    }
+```
+
+- **Code:** 500 Internal Server Error
+- **Content :** 
+ 
+```json
+    {
+        "message": "Address Not Deleted."
+    }
+```
