@@ -12,6 +12,7 @@ This endpoint retrieves a list of all addresses from the database.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
 {
@@ -33,6 +34,7 @@ This endpoint retrieves a list of all addresses from the database.
 ```
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
@@ -116,6 +118,7 @@ This endpoint allows updating details of an existing address.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 ```json
     {
@@ -123,6 +126,7 @@ This endpoint allows updating details of an existing address.
     }
 ```
 
+- **Code:** 404 Not Found
 - **Content:**
 ```json
     {
@@ -130,6 +134,7 @@ This endpoint allows updating details of an existing address.
     }
 ```
 
+- **Code:** 500 Internal Server Error
 - **Content:**
 ```json
     {

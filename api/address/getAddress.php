@@ -35,5 +35,6 @@ if($num > 0){
     echo json_encode($address_list);
 }
 else{
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message'=>'No Address found'));
 }
