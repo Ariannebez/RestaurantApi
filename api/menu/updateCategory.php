@@ -20,12 +20,12 @@ $menuCategory->category = $data->category;
 
 
 if(!$menuCategory->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such client with this id.'));
+    echo json_encode(array('message' => 'ID not good. No such category with this id.'));
 } else {
     // Updating item
     if($menuCategory->updateAll()){
-        echo json_encode(array('message' => 'Country updated.'));
+        echo json_encode(array('message' => 'Category updated.'));
     } else {
-        echo json_encode(array('Country Not updated.'));
+        echo json_encode(array('Category Not updated.'));
     }
 }

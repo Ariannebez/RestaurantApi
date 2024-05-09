@@ -11,7 +11,6 @@ This endpoint retrieves a list of all countries from the database.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -31,7 +30,6 @@ This endpoint retrieves a list of all countries from the database.
 
 ### Error Response
 
-- **Code:** 404 Not Found
 - **Content :** 
 
 ```json
@@ -56,7 +54,6 @@ This endpoint retrieves information about a single country based on it's ID.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -68,7 +65,6 @@ This endpoint retrieves information about a single country based on it's ID.
 
 ### Error Responses
 
-### Code: 404 Not Found
 
 - **Content:** 
 - **Body:**
@@ -77,8 +73,6 @@ This endpoint retrieves information about a single country based on it's ID.
       "message": "No Country found with this id."
   }
 ```
-
-### Code: 400 Bad Request
 
 - **Content:**
 - **Body:**
@@ -104,7 +98,6 @@ This endpoint retrieves information about a single country based on its name.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -116,7 +109,6 @@ This endpoint retrieves information about a single country based on its name.
 
 ### Error Responses
 
-- **Code:** 404 Not Found
 - **Content:** 
 
 ```json
@@ -125,7 +117,6 @@ This endpoint retrieves information about a single country based on its name.
   }
 ```
 
-- **Code:** 400 Bad Request
 - **Content :** 
 - **Body:**
 ```json
@@ -159,7 +150,6 @@ This endpoint allows creating a new country.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -170,7 +160,6 @@ This endpoint allows creating a new country.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
   - **Content :** 
 
 ```json
@@ -207,7 +196,6 @@ This endpoint allows updating the details of an existing country.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
   
 ```json
@@ -218,7 +206,6 @@ This endpoint allows updating the details of an existing country.
 
 ### Error Responses
 
-- **Code:** 400 Bad Request
 - **Content:** 
   
 ```json
@@ -227,7 +214,6 @@ This endpoint allows updating the details of an existing country.
     }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:** 
   
 ```json
@@ -256,7 +242,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -267,7 +252,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Responses
 
-- **Code:** 400 Bad Request
 - **Content :** 
  
 ```json
@@ -276,7 +260,6 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 404 Not Found
 - **Content :** 
   
 ```json
@@ -285,7 +268,6 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 400 Bad Request
 - **Content :** 
  
 ```json

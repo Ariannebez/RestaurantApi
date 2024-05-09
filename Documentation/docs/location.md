@@ -10,7 +10,6 @@ This endpoint retrieves the locations of restaurants.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -30,7 +29,6 @@ This endpoint retrieves the locations of restaurants.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
   - **Content :** 
 
 ```json
@@ -39,7 +37,6 @@ This endpoint retrieves the locations of restaurants.
     }
 ```
 
-- **Code:** 404 Not Found
 - **Content :** 
 
 ```json
@@ -71,7 +68,7 @@ This endpoint allows creating a new restaurant location.
 ```
 
 ### Success Response
-- **Code:** 200 OK
+
 - **Content:**
 
 ```json
@@ -81,7 +78,7 @@ This endpoint allows creating a new restaurant location.
 ```
 
 ### Error Response
-- **Code:** 400 Bad Request
+
 - **Content:**
 
 ```json
@@ -115,7 +112,7 @@ This endpoint allows updating the address of an existing restaurant location.
 ```
 
 ### Success Response
-- **Code:** 200 OK
+
 - **Content:**
 
 ```json
@@ -125,7 +122,7 @@ This endpoint allows updating the address of an existing restaurant location.
 ```
 
 ### Error Response
-- **Code:** 404 Not Found
+
 - **Content:**
 
 ```json
@@ -154,7 +151,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** Indicates that the location was successfully deleted.
 
 ```json
@@ -164,7 +160,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 ```
 
 ### Error Response
-- **Code:** 404 Not Found
+
 - **Content:**
 
 ```json
@@ -173,7 +169,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:** Indicates that no location ID was provided.
 
 ```json

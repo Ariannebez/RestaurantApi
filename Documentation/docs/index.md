@@ -8,6 +8,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `create` - Creates a new row in the database using `POST`.
 * `update` - Updates either a whole row using `PUT` or a specific column of a row using `PATCH`.
 * `delete` - Deletes a row from the database by ID.
+* All successful code status is `200 ok` while if url is written wrong status code will be `404 not found`.
 
 <br>
 
@@ -55,14 +56,13 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
 
 ### Error Response
 
-- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
         "message": "No Clients found"
     }
 ```
-- **Code:** 403 Forbidden
+
 - **Content:**
 ```json
     {
@@ -101,7 +101,7 @@ This endpoint retrieves information about a single client based on their ID.
 
 ### Error Response
 
-- **Code:** 404 Not Found
+
 - **Content:** 
 ```json
     {
@@ -109,7 +109,7 @@ This endpoint retrieves information about a single client based on their ID.
     }
 ```
 
-- **Code:** 400 Bad Request
+
 - **Content:** 
 ```json
     {
@@ -117,7 +117,6 @@ This endpoint retrieves information about a single client based on their ID.
     }
 ```
 
-- **Code:** 403 Forbidden
 - **Content:** 
 ```json
     {
@@ -173,7 +172,6 @@ Below is an exmaple on how to create a new client (all variables are required)
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
@@ -241,7 +239,6 @@ All varbiables are required
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -251,7 +248,6 @@ All varbiables are required
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
@@ -309,7 +305,6 @@ All varbiables are required
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -319,7 +314,6 @@ All varbiables are required
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
@@ -367,7 +361,6 @@ Varbiable is required
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -377,7 +370,6 @@ Varbiable is required
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
@@ -416,7 +408,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -427,7 +418,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -436,7 +426,6 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:**
 
 ```json

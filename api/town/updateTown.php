@@ -20,7 +20,7 @@ $town->name = $data->name;
 $town->countryId = $data->countryId;
 
 if(!$town->exists()) {
-    echo json_encode(array('message' => 'ID not good. No such role with this id.'));
+    echo json_encode(array('message' => 'ID not good. No such town with this id.'));
 } else {
     // Updating item
     if($town->update()){

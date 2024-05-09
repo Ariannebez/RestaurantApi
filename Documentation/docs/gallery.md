@@ -12,7 +12,6 @@ This endpoint retrieves a list of all images from the gallery.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -34,7 +33,6 @@ This endpoint retrieves a list of all images from the gallery.
 
 ### Error Response
 
-- **Code:** 404 Not Found
 - **Content :** 
   
 ```json
@@ -59,7 +57,6 @@ This endpoint retrieves information about a single image from the gallery based 
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -72,7 +69,6 @@ This endpoint retrieves information about a single image from the gallery based 
 
 ### Error Response
 
-- **Code:** 404 Not Found
 - **Content:** 
 
 ```json
@@ -105,7 +101,6 @@ This endpoint allows creating a new image in the gallery.
 
 ### Success Response
 
-- **Code:** 200 OK
   - **Content :** 
 
 ```json
@@ -116,7 +111,6 @@ This endpoint allows creating a new image in the gallery.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
   - **Content :** 
 
 ```json
@@ -149,7 +143,6 @@ This endpoint allows updating the details of an existing image in the gallery.
 }
 ```
 
-- **Code:** 200 OK
   - **Content :** 
 
 ```json
@@ -160,7 +153,6 @@ This endpoint allows updating the details of an existing image in the gallery.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
   - **Content :** 
 
 ```json
@@ -189,7 +181,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 #### Success Response
 
-- **Code:** 200 OK
   - **Content:** Indicates that the image was successfully deleted.
 
 ```json
@@ -200,7 +191,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Response
 
-- **Code:** 400 Bad Request
   - **Content :** 
 
 ```json
@@ -209,7 +199,6 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 404 Not Found
   - **Content :** 
 
 ```json

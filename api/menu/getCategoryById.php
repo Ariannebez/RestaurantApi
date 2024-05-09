@@ -30,3 +30,4 @@ if ($menuCategory) {
 } else {
     echo json_encode(['message' => 'Error: Access denied.']);
 }
+

@@ -12,7 +12,6 @@ This endpoint retrieves a list of all bookings from the database.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -44,7 +43,6 @@ This endpoint retrieves a list of all bookings from the database.
 
 ### Error Response
 
-- **Code:** 404 Not Found
 - **Content:** 
 ```json
 {
@@ -68,7 +66,6 @@ This endpoint retrieves information about a single booking based on its name.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -100,7 +97,6 @@ This endpoint retrieves information about a single booking based on its ID.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -118,7 +114,6 @@ This endpoint retrieves information about a single booking based on its ID.
 
 ### Error Responses
 
-- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
@@ -126,7 +121,6 @@ This endpoint retrieves information about a single booking based on its ID.
     }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
@@ -146,7 +140,6 @@ This endpoint retrieves a list of all booking statuses from the database.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -166,7 +159,6 @@ This endpoint retrieves a list of all booking statuses from the database.
 
 ### Error Response
 
-- **Code:** 404 Not Found
 - **Content:** 
 
 ```json
@@ -211,7 +203,6 @@ All variables are requires.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -222,14 +213,13 @@ All variables are requires.
 
 ### Error Responses
 
-- **Code:** 400 Bad Request
-  - **Content:** 
+- **Content:** 
 ```json
     {
         "message": "Failed to create booking."
     }
 ```
-  - **Content:** 
+- **Content:** 
 ```json
     {
         "message": "Failed to create note."
@@ -259,7 +249,6 @@ This endpoint allows creating a new booking status.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -270,7 +259,6 @@ This endpoint allows creating a new booking status.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -313,7 +301,6 @@ All variables are required.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -324,7 +311,6 @@ All variables are required.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -365,7 +351,6 @@ This endpoint allows updating the date of an existing booking.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -376,7 +361,6 @@ This endpoint allows updating the date of an existing booking.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -385,7 +369,6 @@ This endpoint allows updating the date of an existing booking.
 }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -420,7 +403,6 @@ This endpoint allows updating the time of an existing booking.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -431,7 +413,6 @@ This endpoint allows updating the time of an existing booking.
 
 ### Error Response
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -440,7 +421,6 @@ This endpoint allows updating the time of an existing booking.
 }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
@@ -475,7 +455,6 @@ This endpoint allows updating a note.
 
 ### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -486,7 +465,6 @@ This endpoint allows updating a note.
 
 ### Error Responses
 
-- **Code:** 400 Bad Request
   - **Content:** 
 
 ```json
@@ -495,7 +473,6 @@ This endpoint allows updating a note.
 }
 ```
 
-- **Code:** 400 Bad Request
   - **Content:** 
 
 ```json
@@ -530,7 +507,6 @@ This endpoint allows updating details of an existing booking status.
 
 #### Success Response
 
-- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -541,7 +517,6 @@ This endpoint allows updating details of an existing booking status.
 
 ### Error Responses
 
-- **Code:** 400 Bad Request
   - **Content:** 
 
 ```json
@@ -550,7 +525,6 @@ This endpoint allows updating details of an existing booking status.
 }
 ```
 
-- **Code:** 400 Bad Request
   - **Content:** 
 
 ```json
@@ -577,8 +551,8 @@ This endpoint allows deleting a booking base on it's ID, using a DELETE request.
 The endpoint returns a JSON response with a message indicating the status of the delete operation.
 
 #### Success Response
-- **Code:** 200 OK
-  - **Content:** Indicates that the booking was successfully deleted.
+
+- **Content:** Indicates that the booking was successfully deleted.
 
 ```json
     {
@@ -587,8 +561,8 @@ The endpoint returns a JSON response with a message indicating the status of the
 ```
 
 #### Error Responses
-- **Code:** 400 Bad Request
-  - **Content:** Indicates that no booking ID was provided.
+
+- **Content:** Indicates that no booking ID was provided.
 
 ```json
     {
@@ -596,8 +570,7 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 404 Not Found
-  - **Content:** Indicates that the provided booking ID does not correspond to any existing booking.
+ - **Content:** Indicates that the provided booking ID does not correspond to any existing booking.
     
 ```json
     {
@@ -605,8 +578,7 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 400 Bad Request
-  - **Content:** 
+- **Content:** 
 
 ```json
     {
@@ -632,7 +604,7 @@ This endpoint deletes a booking status based on its ID.
 The endpoint returns a JSON response with a message indicating the status of the delete operation.
 
 #### Success Response
-- **Code:** 200 OK
+
   - **Content:** Indicates that the booking status was successfully deleted.
 
 ```json
@@ -642,8 +614,8 @@ The endpoint returns a JSON response with a message indicating the status of the
 ```
 
 #### Error Responses
-- **Code:** 400 Bad Request
-  - **Content:** Indicates that no booking status ID was provided.
+
+- **Content:** Indicates that no booking status ID was provided.
 
 ```json
     {
@@ -651,8 +623,7 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 404 Not Found
-  - **Content:** Indicates that the provided booking status ID does not correspond to any existing booking.
+- **Content:** Indicates that the provided booking status ID does not correspond to any existing booking.
     
 ```json
     {
@@ -660,8 +631,7 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 400 Bad Request
-  - **Content:** 
+- **Content:** 
 
 ```json
     {
@@ -687,8 +657,8 @@ This endpoint deletes a note based on its ID.
 The endpoint returns a JSON response with a message indicating the status of the delete operation.
 
 #### Success Response
-- **Code:** 200 OK
-  - **Content:** Indicates that the booking status was successfully deleted.
+
+- **Content:** Indicates that the booking status was successfully deleted.
 
 ```json
     {
@@ -697,8 +667,8 @@ The endpoint returns a JSON response with a message indicating the status of the
 ```
 
 #### Error Responses
-- **Code:** 400 Bad Request
-  - **Content:** Indicates that no booking status ID was provided.
+
+- **Content:** Indicates that no booking status ID was provided.
 
 ```json
     {
@@ -706,7 +676,6 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 404 Not Found
 - **Content:** Indicates that the provided note ID does not correspond to any existing notes.
     
 ```json
@@ -715,7 +684,6 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-- **Code:** 400 Bad Request
 - **Content:** 
 
 ```json
