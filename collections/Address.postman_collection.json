@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "748bacc0-5227-4812-98c4-8ad00bad728d",
+		"name": "Address",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Updating Address",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"791\",\n    \"doorNo\":\"83\",\n    \"street\":\"triq l mostaa\",\n    \"townId\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/address/updateAddress.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"address",
+						"updateAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/address/getAddress.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"address",
+						"getAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting address by id ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/address/getAddressById.php?id=718",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"address",
+						"getAddressById.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "718"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting address that are not with a user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/address/deleteAddress.php?id=900",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"address",
+						"deleteAddress.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "900"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
