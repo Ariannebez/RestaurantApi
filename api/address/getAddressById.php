@@ -9,19 +9,28 @@ include_once('../../core/initialize.php');
 // Create instance of User
 $address = new address($db);
 
+// Check if address ID is provided, otherwise return 400 Bad Request
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Address ID not provided.']);
+    exit;
+}
 
-// Attempt to set the client ID from the GET request, or end execution if not provided
-$address->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Address ID not provided.']));
+// Set the address ID from the GET request
+$address->id = $_GET['id'];
 
+// Attempt to retrieve the address details
 $found = $address->read_single();
 
 if (!$found) {
-    // If no client was found
+    // If no address was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'Address not found.']);
     exit;
 }
 
 if ($address) {
+    // If address details are found, prepare response
     $address_info = array(
         'id' => $address->id,
         'doorNo' => $address->doorNo,
@@ -30,5 +39,6 @@ if ($address) {
     );
     echo json_encode($address_info);
 } else {
+    // If there was an error
     echo json_encode(['message' => 'Error: Access denied.']);
 }

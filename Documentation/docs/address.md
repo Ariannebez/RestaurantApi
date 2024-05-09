@@ -56,6 +56,7 @@ This endpoint retrieves information about a single address based on its ID.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -69,7 +70,7 @@ This endpoint retrieves information about a single address based on its ID.
 
 ### Error Response
 
-
+- **Code:** 404 Not Found
 - **Content:**
 ```json
     {
@@ -77,6 +78,7 @@ This endpoint retrieves information about a single address based on its ID.
     }
 ```
 
+- **Code:** 404 Bad Request
 - **Content:**
 ```json
     {
@@ -86,7 +88,7 @@ This endpoint retrieves information about a single address based on its ID.
 
 <br>
 
-# Updating Address
+## Updating Address
 
 This endpoint allows updating details of an existing address.
 
