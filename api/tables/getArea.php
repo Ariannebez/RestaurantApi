@@ -33,5 +33,5 @@ if($num > 0){
     echo json_encode($area_list);
 }
 else{
-    echo json_encode(array('message'=>'No Address found'));
+    echo json_encode(array('message'=>'No Area found'));
 }

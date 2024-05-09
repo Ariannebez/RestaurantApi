@@ -36,5 +36,5 @@ if($num > 0){
     echo json_encode($table_list);
 }
 else{
-    echo json_encode(array('message'=>'No Address found'));
+    echo json_encode(array('message'=>'No table found'));
 }
