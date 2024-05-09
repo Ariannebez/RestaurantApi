@@ -70,15 +70,13 @@ This endpoint retrieves information about a single town based on it's ID.
 
 
 - **Content:** 
-- **Body:**
 ```json
   {
       "message": "No Town found with this id."
   }
 ```
 
-- **Content:**
-- **Body:**
+- **Content:** 
 ```json
   {
       "message": "ID not provided."

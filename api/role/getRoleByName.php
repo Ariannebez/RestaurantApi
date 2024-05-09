@@ -11,7 +11,7 @@ $role = new role($db);
 
 
 // Attempt to set the client ID from the GET request, or end execution if not provided
-$role->name = isset($_GET['name']) ? $_GET['name'] : die(json_encode(['message' => 'Country ID not provided.']));
+$role->name = isset($_GET['name']) ? $_GET['name'] : die(json_encode(['message' => 'Role name not provided.']));
 
 $found = $role->read_single();
 

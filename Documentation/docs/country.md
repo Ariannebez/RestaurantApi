@@ -67,7 +67,7 @@ This endpoint retrieves information about a single country based on it's ID.
 
 
 - **Content:** 
-- **Body:**
+
 ```json
   {
       "message": "No Country found with this id."
@@ -75,7 +75,7 @@ This endpoint retrieves information about a single country based on it's ID.
 ```
 
 - **Content:**
-- **Body:**
+
 ```json
   {
       "message": "ID not provided."
@@ -118,7 +118,7 @@ This endpoint retrieves information about a single country based on its name.
 ```
 
 - **Content :** 
-- **Body:**
+
 ```json
   {
     "message": "Country ID not provided."
@@ -160,7 +160,7 @@ This endpoint allows creating a new country.
 
 ### Error Response
 
-  - **Content :** 
+- **Content :** 
 
 ```json
     {
