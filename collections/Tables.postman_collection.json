@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "d6e2dec7-a746-433b-b36a-53cfb426e822",
+		"name": "Tables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Getting Tables",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/getTable.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"getTable.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting table by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/getTableByNo.php?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"getTableByNo.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating table booking status and area",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"2\",\n    \"bookingStatusId\":\"1\",\n    \"areaId\":\"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/updateTable.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"updateTable.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating table for booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookingStatusId\":\"2\",\n    \"areaId\":\"4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/createTable.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"createTable.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting table",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/deleteTable.php?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"deleteTable.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting the table status ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/getTableStatus.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"getTableStatus.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting table position and number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/getArea.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"getArea.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting table status by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/getTableStatusById.php?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"getTableStatusById.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting area by id ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/getAreaById.php?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"getAreaById.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating table status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\":\"not booked\",\n    \"tableNo\":\"2\",\n    \"tableId\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/createTableStatus.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"createTableStatus.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating table area",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tableNo\":\"90\",\n    \"location\":\"inside\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/createArea.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"createArea.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating table no and location",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"8\",\n    \"tableNo\":\"24\",\n    \"location\":\"insideeeee\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/updateArea.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"updateArea.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting table ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/deleteArea.php?id=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"deleteArea.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting table status",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/tables/deleteTableStatus.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"tables",
+						"deleteTableStatus.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

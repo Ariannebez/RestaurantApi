@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "dd58ef1d-7c1c-41f3-bfb7-a4189e4824c7",
+		"name": "Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Getting all booking ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/getBookings.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"getBookings.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting booking by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/getBookingByName.php?name=Staff01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"getBookingByName.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Staff01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting booking by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/getBookingById.php?3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"getBookingById.php"
+					],
+					"query": [
+						{
+							"key": "3",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numberOfpeople\":\"2000\",\n    \"date\":\"2024-04-30\",\n    \"time\":\"20:00:00\",\n    \"userId\":\"20\",\n    \"bookingIdStatus\":\"3\",\n    \"note\":\"Work party\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/createBooking.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"createBooking.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating booking (number of people, date, time and status id)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"3\",\n    \"numberOfpeople\":\"2\",\n    \"date\":\"2024-04-30\",\n    \"time\":\"21:00:00\",\n    \"userId\":\"18\",\n    \"bookingIdStatus\":\"3\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/updateBooking.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"updateBooking.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating booking time",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"7\",\n    \"time\":\"20:30:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/updateBookingTime.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"updateBookingTime.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating booking date",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"7\",\n    \"date\":\"2024-05-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/updateBookingDate.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"updateBookingDate.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting booking",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/deleteBooking.php?id=45",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"deleteBooking.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "45"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting booking note",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/deleteNote.php?id=88",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"deleteNote.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "88"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update note",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"77\",\n    \"note\":\"2 are kids so we will need the kids menu\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/updateBookingNote.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"updateBookingNote.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

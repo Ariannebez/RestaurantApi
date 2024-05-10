@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "d9643fd3-c3f7-4f5a-8987-c710bed49a71",
+		"name": "Daily Special",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Getting Daily special",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getSpecial.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getSpecial.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting daily special by item name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getSpecialByItem.php?item=duck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getSpecialByItem.php"
+					],
+					"query": [
+						{
+							"key": "item",
+							"value": "duck"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating daily special",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"img\":\"inlcudes/img/beef.png\",\n    \"item\":\"beef\",\n    \"des\":\"this pasta has beef\",\n    \"price\":\"8.5\",\n    \"categoryId\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/createSpecial.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"createSpecial.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating price",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"2\",\n    \"price\":\"700\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/updateSpecialPrice.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"updateSpecialPrice.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating all details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"2\",\n    \"img\":\"inlcudes/img/beef.png\",\n    \"item\":\"beef\",\n    \"des\":\"this is a grilled beef in mushroom suace\",\n    \"price\":\"24\",\n    \"categoryId\":\"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/updateAllSpecial.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"updateAllSpecial.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting daily special ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/deleteSpecial.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"deleteSpecial.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

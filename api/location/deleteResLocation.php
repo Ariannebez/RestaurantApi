@@ -19,6 +19,7 @@ $data = json_decode(file_get_contents('php://input'));
 $locationId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if($locationId === null) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
     echo json_encode(array('message' => 'No ID provided.'));
     exit; // Stop script execution after sending the response
 }
@@ -27,6 +28,7 @@ $location->id = $locationId;
 
 // First, check if the client exists
 if(!$location->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such location with that Id.'));
 } else {
     // Try to delete the client

@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "86ff2d13-d702-4930-88ea-d7064d0302f7",
+		"name": "Booking Status",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Getting all booking Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/getBookingStatus.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"getBookingStatus.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating Status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Fully booked\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/createBookingStatus.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"createBookingStatus.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating Status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"4\",\n    \"name\":\"Booked No space\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/updateBookingStatus.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"updateBookingStatus.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting status",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/bookings/deleteBookingStatus.php?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"bookings",
+						"deleteBookingStatus.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

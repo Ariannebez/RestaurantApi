@@ -17,7 +17,6 @@ $data = json_decode(file_get_contents('php://input'));
 
 $location->address = $data->address;
 
-
  
 if($location->create()){
     echo json_encode(array('message' => 'Restaurant location created.'));

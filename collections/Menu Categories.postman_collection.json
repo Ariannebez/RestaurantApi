@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "9ed12056-5a7e-42dc-9db9-5d34b3d64738",
+		"name": "Menu Categories",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Getting all menu categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getCategories.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getCategories.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting categories by id ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getCategoryById.php?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getCategoryById.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n   \"category\":\"duck\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/createCategories.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"createCategories.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating category",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"8\",\n    \"category\":\"duck\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/updateCategory.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"updateCategory.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting Category that has no relationships",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/deleteCategory.php?id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"deleteCategory.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

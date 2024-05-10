@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "be40cfc2-9ba5-4b18-b6ed-138ed4d2c549",
+		"name": "Menu Items",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Getting All items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getItems.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getItems.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting All Starters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllStarters.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllStarters.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all items from category Pasta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllPasta.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllPasta.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting items by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getItemsByName.php?name=Bruschetta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getItemsByName.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Bruschetta"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Beef pastaaaaaaaa\",\n    \"des\":\"this pasta has beef\",\n    \"price\":\"8.5\",\n    \"categoryId\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/createItem.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"createItem.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating Name, des and categoryId",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"55\",\n    \"name\":\"Rid eye\",\n    \"des\":\"Rid eye served with chips and mushroom suace\",\n    \"categoryId\":\"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/updateItem.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"updateItem.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating Price",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"56\",\n    \"price\":\"700\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/updateItemPrice.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"updateItemPrice.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating all details of an item ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"70\",\n    \"name\":\"Rid eye\",\n    \"des\":\"Rid eyeeeeee served with chips paper or mushroom suce\",\n    \"price\":\"23\",\n    \"categoryId\":\"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/updateAllItem.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"updateAllItem.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/deleteItem.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"deleteItem.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting item by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getItemsById.php?id-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getItemsById.php"
+					],
+					"query": [
+						{
+							"key": "id-2",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all item from the category of pasta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllPasta.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllPasta.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all item with the category meat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllMeat.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllMeat.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all items with the category of fish",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllFish.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllFish.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting kids items ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllKids.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllKids.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all the desserts in the menu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllDesserts.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllDesserts.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting all the drinks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/menu/getAllDrinks.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"menu",
+						"getAllDrinks.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
