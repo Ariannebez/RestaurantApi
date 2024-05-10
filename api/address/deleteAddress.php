@@ -33,7 +33,6 @@ if (!$address->exists()) {
     if ($address->delete()) {
         echo json_encode(array('message' => 'Address Deleted.'));
     } else {
-        http_response_code(500); // Set HTTP status code to 500 Internal Server Error (or choose appropriate status code)
         echo json_encode(array('message' => 'Address Not Deleted.'));
     }
 }

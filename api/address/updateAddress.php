@@ -32,7 +32,7 @@ if (!$address->exists()) {
         http_response_code(200); // Set HTTP status code to 200 OK
         echo json_encode(array('message' => 'Address updated.'));
     } else {
-        http_response_code(500); // Set HTTP status code to 500 Internal Server Error
+        
         echo json_encode(array('message' => 'Address not updated.'));
     }
 }

@@ -11,6 +11,7 @@ This endpoint retrieves a list of all countries from the database.
 
 ### Success Response
 
+- **Code** 200 Ok
 - **Content :** 
 
 ```json
@@ -30,6 +31,7 @@ This endpoint retrieves a list of all countries from the database.
 
 ### Error Response
 
+- **Code** 404 Not Found
 - **Content :** 
 
 ```json
@@ -54,6 +56,7 @@ This endpoint retrieves information about a single country based on it's ID.
 
 ### Success Response
 
+- **Code :** 200 OK
 - **Content :** 
 
 ```json
@@ -65,7 +68,7 @@ This endpoint retrieves information about a single country based on it's ID.
 
 ### Error Responses
 
-
+- **Code :** 404 Not Found 
 - **Content:** 
 
 ```json
@@ -74,6 +77,7 @@ This endpoint retrieves information about a single country based on it's ID.
   }
 ```
 
+- **Code :** 400 Bad Request
 - **Content:**
 
 ```json
@@ -98,6 +102,7 @@ This endpoint retrieves information about a single country based on its name.
 
 ### Success Response
 
+- **Code :** 200 OK 
 - **Content :** 
 
 ```json
@@ -109,6 +114,8 @@ This endpoint retrieves information about a single country based on its name.
 
 ### Error Responses
 
+
+- **Code :** 404 Not Found
 - **Content:** 
 
 ```json
@@ -117,6 +124,8 @@ This endpoint retrieves information about a single country based on its name.
   }
 ```
 
+
+- **Code :** 400 Bad Request
 - **Content :** 
 
 ```json
@@ -197,7 +206,8 @@ This endpoint allows updating the details of an existing country.
 ### Success Response
 
 - **Content:** 
-  
+
+- **Code** 200 OK 
 ```json
     {
         "message": "Country updated."
@@ -207,7 +217,8 @@ This endpoint allows updating the details of an existing country.
 ### Error Responses
 
 - **Content:** 
-  
+
+- **Code** 404 Not Found 
 ```json
     {
         "message": "ID not good. No such country with this id."
@@ -242,6 +253,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
+- **Code** 200 OK
 - **Content :** 
 
 ```json
@@ -252,6 +264,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Responses
 
+- **Code** 400 Bad Request
 - **Content :** 
  
 ```json
@@ -262,6 +275,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 - **Content :** 
   
+- **Code** 404 Not Found
 ```json
     {
         "message": "ID not good. No such Country."

@@ -8,7 +8,10 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `create` - Creates a new row in the database using `POST`.
 * `update` - Updates either a whole row using `PUT` or a specific column of a row using `PATCH`.
 * `delete` - Deletes a row from the database by ID.
-* All successful code status is `200 ok` while if url is written wrong status code will be `404 not found`.
+* All successful code status is `200 ok`. 
+* 404 Not found is id is not found in the database or URL not good.
+* 400 Bad Request.
+* 403 Forbidden, if from clients side you try getting a worker insated of a client.
 
 <br>
 

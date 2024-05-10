@@ -20,6 +20,7 @@ $country->name = $data->name;
 
 
 if(!$country->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such country with this id.'));
 } else {
     // Updating item
