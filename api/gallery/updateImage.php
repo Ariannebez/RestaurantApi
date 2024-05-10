@@ -19,11 +19,14 @@ $gallery->id = $data->id;
 $gallery->img = $data->img;
 $gallery->des = $data->des;
 
-//$Clients->roleId = $data->roleId;
-
-if($gallery->update()){
-    echo json_encode(array('message' => 'Image details updated.'));
-}
-else{
-    echo json_encode(array('message' => 'Image not updated.'));
+if(!$gallery->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
+    echo json_encode(array('message' => 'ID not good. No such image with this id.'));
+} else {
+    // Updating item
+    if($gallery->update()){
+        echo json_encode(array('message' => 'Image details updated.'));
+    } else {
+        echo json_encode(array('Image Not updated.'));
+    }
 }

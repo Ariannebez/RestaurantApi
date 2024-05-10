@@ -12,6 +12,7 @@ This endpoint retrieves a list of all images from the gallery.
 
 ### Success Response
 
+- **Code :** 200 OK
 - **Content :** 
 
 ```json
@@ -33,6 +34,7 @@ This endpoint retrieves a list of all images from the gallery.
 
 ### Error Response
 
+- **Code :** 404 Not Found
 - **Content :** 
   
 ```json
@@ -57,6 +59,7 @@ This endpoint retrieves information about a single image from the gallery based 
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -69,11 +72,21 @@ This endpoint retrieves information about a single image from the gallery based 
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** 
 
 ```json
 {
     "message": "No Image found with this id."
+}
+```
+
+- **Code:** 400 Bad Request
+- **Content:** 
+
+```json
+{
+    "message": "ID not provided."
 }
 ```
 
@@ -101,7 +114,8 @@ This endpoint allows creating a new image in the gallery.
 
 ### Success Response
 
-  - **Content :** 
+- **Code:** 200 Ok
+- **Content :** 
 
 ```json
     {
@@ -111,7 +125,8 @@ This endpoint allows creating a new image in the gallery.
 
 ### Error Response
 
-  - **Content :** 
+- **Code:** 200 Ok
+- **Content :** 
 
 ```json
     {
@@ -142,8 +157,10 @@ This endpoint allows updating the details of an existing image in the gallery.
     "des": "Updated description of the image."
 }
 ```
+#### Success Response
 
-  - **Content :** 
+- **Code:** 200 OK
+- **Content :** 
 
 ```json
     {
@@ -153,11 +170,21 @@ This endpoint allows updating the details of an existing image in the gallery.
 
 ### Error Response
 
-  - **Content :** 
+- **Code:** 400 Bad Reqquest
+- **Content :** 
 
 ```json
     {
-         "message": "Image not updated."
+    "message": "No ID provided."
+    }
+```
+
+- **Code:** 404 Not Found
+- **Content :** 
+
+```json
+    {
+    "message": "ID not good. No such image."
     }
 ```
 
@@ -181,7 +208,8 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 #### Success Response
 
-  - **Content:** Indicates that the image was successfully deleted.
+- **Code:** 200 OK
+- **Content:** Indicates that the image was successfully deleted.
 
 ```json
 {
@@ -191,7 +219,8 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Response
 
-  - **Content :** 
+- **Code:** 400 Bad Reqquest
+- **Content :** 
 
 ```json
     {
@@ -199,7 +228,8 @@ The endpoint returns a JSON response with a message indicating the status of the
     }
 ```
 
-  - **Content :** 
+- **Code:** 404 Not Found
+- **Content :** 
 
 ```json
     {
