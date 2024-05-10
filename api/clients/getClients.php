@@ -38,5 +38,6 @@ if($num > 0){
     echo json_encode($clients_list);
 }
 else{
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message'=>'No Clients found'));
 }

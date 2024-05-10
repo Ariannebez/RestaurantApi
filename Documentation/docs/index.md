@@ -26,6 +26,7 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -56,17 +57,11 @@ This endpoint retrieves a list of clients from the database where roleId is 1.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
         "message": "No Clients found"
-    }
-```
-
-- **Content:**
-```json
-    {
-       "Error: Access denied because this Id has a diffrent role."
     }
 ```
 
@@ -85,6 +80,7 @@ This endpoint retrieves information about a single client based on their ID.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -101,7 +97,7 @@ This endpoint retrieves information about a single client based on their ID.
 
 ### Error Response
 
-
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
@@ -109,7 +105,7 @@ This endpoint retrieves information about a single client based on their ID.
     }
 ```
 
-
+- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
@@ -117,6 +113,7 @@ This endpoint retrieves information about a single client based on their ID.
     }
 ```
 
+- **Code:** 403 Forbidden
 - **Content:** 
 ```json
     {
@@ -163,6 +160,7 @@ Below is an exmaple on how to create a new client (all variables are required)
 ```
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -172,30 +170,39 @@ Below is an exmaple on how to create a new client (all variables are required)
 
 ### Error Response
 
+- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
     "error": "Field is missing or empty."
     }
 ```
+
+- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
     "error": "Invalid email format."
     }
 ```
+
+- **Code:** 400 Bad Request
 - **Content:** 
 ```json
     {
     "error": "Invalid date format for dob."
     }
 ```
+
+- **Code:** 500 Internal Server Error
 - **Content:** 
 ```json
     {
     "error": "Address not created."
     }
 ```
+
+- **Code:** 500 Internal Server Error
 - **Content:** 
 ```json
     {
@@ -239,6 +246,7 @@ All varbiables are required
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -248,19 +256,22 @@ All varbiables are required
 
 ### Error Response
 
+- **Code:** 404 Not Found  
 - **Content:** 
 ```json
     {
         "message": "ID not good. No such client with this id."
     }
 ```
-    
+
+- **Code:** 403 Forbidden 
 ```json
     {
         "message": "Failed to update client details. Role ID must be 1."
     }
 ```
 
+- **Code:** 200 OK
 ```json
     {
         "message": "Client Not updated."
@@ -305,6 +316,7 @@ All varbiables are required
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -314,12 +326,15 @@ All varbiables are required
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
     "message": "ID not good. No such client with this id."
     }
 ```
+
+- **Code:** 403 Forbidden
 ```json
     {
         "message": "Failed to update client details. Role ID must be 1."
@@ -355,12 +370,9 @@ Varbiable is required
 
 ### Response
 
-- **200 OK:** If the password is updated successfully.
-- **400 Bad Request:** If the provided ID is invalid or the client does not exist.
-- **422 Unprocessable Entity:** If the role ID of the client is not 1.
-
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 ```json
     {
@@ -370,12 +382,15 @@ Varbiable is required
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
     "message": "ID not valid. No such client with this ID."
     }
 ```
+
+- **Code:** 403 Forbidden
 ```json
     {
         "message": "Failed to update password. Role ID must be 1."
@@ -408,6 +423,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -420,17 +436,19 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 - **Content:** 
 
+- **Code:** 404 Not Found
 ```json
     {
-    "message": "ID not valid. No such client with this ID."
+    "message": "ID not good. No such client."
     }
 ```
 
 - **Content:**
 
+- **Code:** 400 Bad Request
 ```json
     {
-        "message": "Client Not Deleted"
+        "message": "No ID provided"
     }
 ```
 

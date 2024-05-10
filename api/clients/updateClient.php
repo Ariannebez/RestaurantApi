@@ -22,8 +22,10 @@ $Clients->surname = $data->surname;
 
 // Check if client exists and roleId is 1
 if (!$Clients->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not valid. No such client with this ID.'));
 } elseif ($Clients->getRoleId() != 1) {
+    http_response_code(403); // Set HTTP status code to 403 Forbidden
     echo json_encode(array('message' => 'Failed to update client details. Role ID must be 1.'));
 } else {
     // Updating item
