@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "0696ede0-d98c-45bf-99e1-19980cd22b5d",
+		"name": "Staff",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32851188"
+	},
+	"item": [
+		{
+			"name": "Get all staff",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/getStaff.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"getStaff.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting Staff By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/getStaffById.php?id=23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"getStaffById.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating Staff with Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"email\":\"creatingStaff@gmailcom\",\n    \"password\":\"creatingStaff01\",\n    \"name\":\"Staff01\",\n    \"surname\":\"Staff\",\n    \"dob\":\"2013-03-04\",\n    \"addressId\":\"\",\n    \"doorNo\":\"8\",\n    \"street\":\"triq triq triq triq\",\n    \"townId\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/createStaff.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"createStaff.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating name, surname and email of Staff",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"id\":\"20\",\n    \"email\":\"updatedStaff@hotmail.ccom\",\n    \"name\":\"staff updated\",\n    \"surname\":\"staff\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/updateStaff.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"updateStaff.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Staff Password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"id\":\"23\",\n    \"password\":\"passwordUpdated07\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/updateStaffPassword.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"updateStaffPassword.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting staff",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/deleteStaff.php?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"deleteStaff.php"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating all staff details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"id\":\"20\",\n    \"email\":\"amy@hotmail.ccom\",\n    \"password\":\"axscscsc\",\n    \"name\":\"Amy\",\n    \"surname\":\"galea\",\n    \"dob\":\"2006-11-09\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/RestaurantApi/api/staff/updateAllStaff.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"RestaurantApi",
+						"api",
+						"staff",
+						"updateAllStaff.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

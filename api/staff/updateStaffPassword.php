@@ -20,8 +20,10 @@ $staff->password = password_hash($data->password, PASSWORD_DEFAULT);
 
 // Check if client exists and roleId is 1
 if (!$staff->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not valid. No such staff with this ID.'));
 } elseif ($staff->getRoleId() != 2) {
+    http_response_code(403); // Set HTTP status code to 403 Forbidden
     echo json_encode(array('message' => 'Failed to update password details. Role ID must be 2.'));
 } else {
     // Updating item

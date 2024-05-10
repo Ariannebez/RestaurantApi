@@ -50,15 +50,6 @@ This endpoint retrieves a list of staff from the database where roleId is 2.
     }
 ```
 
-- **Code:** 403 Forbidden
-- **Content:**
-   
-```json
-    {
-       "Error": "Access denied because this Id has a diffrent role."
-    }
-```
-
 <br>
 
 ## Single Staff
@@ -74,6 +65,7 @@ This endpoint retrieves information about a single worker based on their ID.
 
 ### Success Response
 
+- **Code:** 200 OK 
 - **Content:** 
 ```json
     {
@@ -244,20 +236,22 @@ All varbiables are required
 
 ### Error Response
 
-- **Code:** 400 Bad Request
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
         "message": "ID not good. No such staff with this id."
     }
 ```
-    
+
+- **Code:** 403 Forbidden   
 ```json
     {
         "message": "Failed to update staff details. Role ID must be 2."
     }
 ```
 
+- **Code:** 200 OK 
 ```json
     {
         "message": "Staff Not updated."
@@ -296,14 +290,11 @@ All varbiables are required
 
 ### Response
 
- **200 OK:** If the staff details are updated successfully.
-- **400 Bad Request:** If the provided ID is invalid or the staff does not exist.
-- **422 Unprocessable Entity:** If the role ID of the staff is not 2.
-
 ### Success Response
 
 - **Code:** 200 OK
 - **Content:** 
+
 ```json
     {
     "message": "Staff details updated successfully."
@@ -312,14 +303,17 @@ All varbiables are required
 
 ### Error Response
 
-- **Code:** 400 Bad Request
+- **Code:** 404 Not Found
 - **Content:** 
+
 ```json
     {
     "message": "ID not good. No such staff with this id."
     }
- ```
-    
+```
+
+- **Code:** 403 Forbidden  
+- **Content:**
 ```json
     {
         "message": "Failed to update staff details. Role ID must be 2."
@@ -355,10 +349,6 @@ Varbiable is required
 
 ### Response
 
-- **200 OK:** If the password is updated successfully.
-- **400 Bad Request:** If the provided ID is invalid or the staff does not exist.
-- **422 Unprocessable Entity:** If the role ID of the client is not 2.
-
 ### Success Response
 
 - **Code:** 200 OK
@@ -371,13 +361,16 @@ Varbiable is required
 
 ### Error Response
 
-- **Code:** 400 Bad Request
+- **Code:** 404 Not Found
 - **Content:** 
 ```json
     {
     "message": "ID not valid. No such staff with this ID."
     }
 ```
+
+- **Code:** 403 Forbidden
+- **Content:** 
 ```json
     {
         "message": "Failed to update password. Role ID must be 2."
@@ -406,7 +399,6 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 - **200 OK:** If the staff is deleted successfully.
 - **400 Bad Request:** If no ID is provided.
-- **404 Not Found:** If the provided ID does not correspond to any existing staff.
 
 ### Success Response
 
@@ -424,9 +416,20 @@ The endpoint returns a JSON response with a message indicating the status of the
 - **Content:** 
 ```json
     {
+    "message": "No ID provided."
+    }
+```
+
+- **Code:** 404 Not Found
+- **Content:** 
+```json
+    {
     "message": "ID not valid. No such staff with this ID."
     }
 ```
+
+- **Code:** 200 OK
+- **Content:** 
 ```json
     {
         "message": "Staff Not Deleted"

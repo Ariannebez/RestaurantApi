@@ -22,8 +22,10 @@ $staff->surname = $data->surname;
 
 // Check if staff exists and roleId is 2
 if (!$staff->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not valid. No such staff with this ID.'));
 } elseif ($staff->getRoleId() != 2) {
+    http_response_code(403); // Set HTTP status code to 403 Forbidden
     echo json_encode(array('message' => 'Failed to update staff details. Role ID must be 2.'));
 } else {
     // Updating staff
