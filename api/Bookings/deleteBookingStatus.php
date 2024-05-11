@@ -28,6 +28,7 @@ $bookingStatus->id = $bookingStatusId;
 
 // First, check if the client exists
 if(!$bookingStatus->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such status.'));
 } else {
     // Try to delete the client

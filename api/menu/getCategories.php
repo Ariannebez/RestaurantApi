@@ -31,5 +31,6 @@ if($num > 0){
     echo json_encode($menuCategory_list);
 }
 else{
-    echo json_encode(array('message'=>'No Country found'));
+    http_response_code(404); // Set HTTP status code to 404 Not Found
+    echo json_encode(array('message'=>'No Category found'));
 }

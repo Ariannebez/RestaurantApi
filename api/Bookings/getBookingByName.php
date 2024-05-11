@@ -9,14 +9,21 @@ include_once('../../core/initialize.php');
 // Create instance of item
 $bookings = new bookings($db);
 
+// Attempt to set the booking name from the GET request, or end execution if not provided
+if (!isset($_GET['name']) || empty($_GET['name'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Booking name not provided.']);
+    exit;
+}
 
-// Attempt to set the client ID from the GET request, or end execution if not provided
-$bookings->name = isset($_GET['name']) ? $_GET['name'] : die(json_encode(['message' => 'Booking ID not provided.']));
+$bookings->name = $_GET['name'];
+
 
 $found = $bookings->read_singleName();
 
 if (!$found) {
     // If no client was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'No booking found with this id.']);
     exit;
 }

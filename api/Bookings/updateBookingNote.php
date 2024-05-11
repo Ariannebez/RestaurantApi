@@ -19,6 +19,7 @@ $note->id = $data->id;
 $note->note = $data->note;
 
 if(!$note->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such note with this id.'));
 } else {
     // Updating Date

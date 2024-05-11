@@ -10,13 +10,21 @@ include_once('../../core/initialize.php');
 $bookings = new bookings($db);
 
 
-// Attempt to set the client ID from the GET request, or end execution if not provided
-$bookings->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Booking ID not provided.']));
+// Attempt to set the booking ID from the GET request, or end execution if not provided
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Booking ID not provided.']);
+    exit;
+}
+
+$bookings->id = $_GET['id'];
+
 
 $found = $bookings->read_singleId();
 
 if (!$found) {
     // If no client was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'No booking found with this id.']);
     exit;
 }

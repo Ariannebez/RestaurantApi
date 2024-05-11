@@ -20,6 +20,7 @@ $bookingStatus->name = $data->name;
 
 
 if(!$bookingStatus->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such status with this id.'));
 } else {
     // Updating item

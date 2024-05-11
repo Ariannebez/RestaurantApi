@@ -14,6 +14,7 @@ The endpoint returns a JSON response containing an array of items.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** An array of items.
 
 ```json
@@ -42,6 +43,7 @@ The endpoint returns a JSON response containing an array of items.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 ```json
 {
@@ -65,6 +67,7 @@ The endpoint returns a JSON response containing the details of the item.
 
 ### Success Response
 
+- **Code:** 200 OK
 -**Content:** Details of the item.
 
 ```json
@@ -78,6 +81,15 @@ The endpoint returns a JSON response containing the details of the item.
 
 ### Error Response
 
+- **Code:** 400 Bad Request
+-**Content:** Indicates that no item ID was provided.
+```json
+{
+    "message": "Item ID not provided."
+}
+```
+
+- **Code:** 404 Not Found
 -**Content:** Indicates that no item ID was provided.
 ```json
 {
@@ -101,6 +113,7 @@ The endpoint returns a JSON response containing the details of the item.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Details of the item.
 ```json
 {
@@ -112,8 +125,17 @@ The endpoint returns a JSON response containing the details of the item.
 ```
 ### Error Response
 
+- **Code:** 400 Bad Request
 - **Content:** Indicates that no item name was provided.
 
+```json
+{
+    "message": "Item name not provided."
+}
+```
+
+- **Code:** 404 Not Found
+-**Content:** Indicates that no item ID was provided.
 ```json
 {
     "message": "Item name not provided."
@@ -201,6 +223,7 @@ The endpoint returns a JSON response indicating the status of the operation.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the details of the menu item were successfully updated.
 
 ```json
@@ -211,6 +234,7 @@ The endpoint returns a JSON response indicating the status of the operation.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that the menu item ID provided is invalid or does not exist.
 
 ```json
@@ -249,6 +273,7 @@ This endpoint allows updating specific details of a menu item.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the specified details of the menu item were successfully updated.
 ```json
 {
@@ -258,6 +283,7 @@ This endpoint allows updating specific details of a menu item.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that the menu item ID provided is invalid or does not exist.
 
 ```json
@@ -295,6 +321,7 @@ The endpoint returns a JSON response indicating the status of the operation.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the price of the menu item was successfully updated.
 
 ```json
@@ -305,6 +332,7 @@ The endpoint returns a JSON response indicating the status of the operation.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that the menu item ID provided is invalid or does not exist.
 
 ```json
@@ -333,6 +361,7 @@ The endpoint returns a JSON response indicating the status of the delete operati
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the menu item was successfully deleted.
 
 ```json
@@ -343,6 +372,7 @@ The endpoint returns a JSON response indicating the status of the delete operati
 
 ### Error Response
 
+- **Code:** 400 Bad Request 
 - **Content:** Indicates that no item ID was provided.
 
 ```json
@@ -350,6 +380,16 @@ The endpoint returns a JSON response indicating the status of the delete operati
     "message": "No ID provided."
 }
 ```
+
+- **Code:** 404 Not Found
+- **Content:** Indicates that the menu item ID provided is invalid or does not exist.
+
+```json
+{
+    "message": "ID not good. No such Item with this id."
+}
+```
+
 
 <br>
 
@@ -369,6 +409,7 @@ The endpoint returns a JSON response containing an array of special items.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** An array of special items.
 
 ```json
@@ -397,6 +438,7 @@ The endpoint returns a JSON response containing an array of special items.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no special items were found.
 ```json
 {
@@ -424,6 +466,7 @@ The endpoint returns a JSON response containing the details of the special item.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Details of the special item.
 
 ```json
@@ -438,11 +481,21 @@ The endpoint returns a JSON response containing the details of the special item.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no special items were found with the provided name.
 
 ```json
 {
     "message": "No special items found with this name."
+}
+```
+
+- **Code:** 400 Bad Request
+- **Content:**
+
+```json
+{
+    "message": "No ID provided."
 }
 ```
 
@@ -534,6 +587,7 @@ The endpoint returns a JSON response indicating the status of the update operati
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that all details of the special item were successfully updated.
 ```json
 {
@@ -543,6 +597,7 @@ The endpoint returns a JSON response indicating the status of the update operati
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no item with the provided ID was found.
 
 ```json
@@ -580,6 +635,7 @@ The endpoint returns a JSON response indicating the status of the operation.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the price of the special item was successfully updated.
 
 ```json
@@ -590,6 +646,7 @@ The endpoint returns a JSON response indicating the status of the operation.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that the special item ID provided is invalid or does not exist.
 
 ```json
@@ -618,6 +675,7 @@ The endpoint returns a JSON response indicating the status of the delete operati
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the special item was successfully deleted.
 
 ```json
@@ -628,11 +686,21 @@ The endpoint returns a JSON response indicating the status of the delete operati
 
 ### Error Response
 
-- **Content:** Indicates that no special item ID was provided.
+- **Code:** 400 Bad Request 
+- **Content:** Indicates that no item ID was provided.
 
 ```json
 {
     "message": "No ID provided."
+}
+```
+
+- **Code:** 404 Not Found
+- **Content:** Indicates that the menu item ID provided is invalid or does not exist.
+
+```json
+{
+    "message": "ID not good. No such Special Item with this id."
 }
 ```
 
@@ -656,6 +724,7 @@ The endpoint returns a JSON response containing an array of menu categories.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that menu categories were found.
 
 ```json
@@ -676,6 +745,7 @@ The endpoint returns a JSON response containing an array of menu categories.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no menu categories were found.
 
 ```json
@@ -704,6 +774,7 @@ The endpoint returns a JSON response containing the details of the requested men
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the menu category was found.
 
 ```json
@@ -721,11 +792,20 @@ This error response indicates that no menu category was found with the provided 
 
 The endpoint returns a JSON response indicating that no menu category was found with the provided ID.
 
-- `Content:` Indicates that no menu category was found with the provided ID.
+- **Code:** 404 Not Found
+- **Content:** Indicates that no menu category was found with the provided ID.
 
 ```json
 {
     "message": "No Category found with this id."
+}
+```
+- **Code:** 400 Bad Request 
+- **Content:** Indicates that no item ID was provided.
+
+```json
+{
+    "message": "No ID provided."
 }
 ```
 
@@ -742,6 +822,7 @@ This endpoint retrieves starter items from the menu by category.
 ### Response
 The endpoint returns a list of starter items in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the starter items.
 
 ```json
@@ -769,6 +850,7 @@ The endpoint returns a list of starter items in JSON format.
 ### Error Response
 If no starter items are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 
 ```json
@@ -790,6 +872,7 @@ This endpoint retrieves pasta items from the menu by category.
 ### Response
 The endpoint returns a list of pasta items in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the starter items.
 
 ```json
@@ -817,6 +900,7 @@ The endpoint returns a list of pasta items in JSON format.
 ### Error Response
 If no pasta items are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 
 ```json
@@ -838,6 +922,7 @@ This endpoint retrieves meat items from the menu by category.
 ### Response
 The endpoint returns a list of meat items in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the starter items.
 
 ```json
@@ -865,6 +950,7 @@ The endpoint returns a list of meat items in JSON format.
 ### Error Response
 If no meat items are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 
 ```json
@@ -886,6 +972,7 @@ This endpoint retrieves fish items from the menu by category.
 ### Response
 The endpoint returns a list of fish items in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the fish items.
 
 ```json
@@ -913,6 +1000,7 @@ The endpoint returns a list of fish items in JSON format.
 ### Error Response
 If no kids items are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 
 ```json
@@ -934,6 +1022,7 @@ This endpoint retrieves kids items from the menu by category.
 ### Response
 The endpoint returns a list of kids items in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the kids items.
 
 ```json
@@ -961,6 +1050,7 @@ The endpoint returns a list of kids items in JSON format.
 ### Error Response
 If no kids items are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 
 ```json
@@ -982,6 +1072,7 @@ This endpoint retrieves dessert items from the menu by category.
 ### Response
 The endpoint returns a list of dessert items in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the dessert items.
 
 ```json
@@ -1009,6 +1100,7 @@ The endpoint returns a list of dessert items in JSON format.
 ### Error Response
 If no dessert items are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no items were found.
 
 ```json
@@ -1030,6 +1122,7 @@ This endpoint retrieves drink items from the menu by category.
 ### Success Response
 The endpoint returns a list of drinks in JSON format.
 
+- **Code:** 200 OK
 - **Content:** JSON array containing information about the drink.
 
 ```json
@@ -1057,6 +1150,7 @@ The endpoint returns a list of drinks in JSON format.
 ### Error Response
 If no drink are found, the endpoint returns a JSON response indicating that no items were found.
 
+- **Code:** 404 Not Found
 - **Content:** Indicates that no drink were found.
 
 ```json
@@ -1092,6 +1186,7 @@ This endpoint allows updating the details of a menu category.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** If the menu category is successfully updated
 
 ```json
@@ -1102,11 +1197,12 @@ This endpoint allows updating the details of a menu category.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:** If the provided category ID does not exist
 
 ```json
 {
-    "message": "ID not good. No such client with this id."
+    "message": "ID not good. No such category with this id."
 }
 ```
 
@@ -1130,6 +1226,7 @@ The endpoint returns a JSON response indicating the status of the delete operati
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** Indicates that the category was successfully deleted.
 
 ```json
@@ -1140,6 +1237,7 @@ The endpoint returns a JSON response indicating the status of the delete operati
 
 ### Error Response
 
+- **Code:** 400 Bad Request
 - **Content:** Indicates that no category ID was provided.
 
 ```json
@@ -1148,6 +1246,16 @@ The endpoint returns a JSON response indicating the status of the delete operati
 }
 ```
 
+- **Code:** 404 Not Found
+- **Content:** If the provided category ID does not exist
+
+```json
+{
+    "message": "ID not good. No such category with this id."
+}
+```
+
+- **Code:** 200 OK
 - **Content:** Category was not deleted
 
 ```json

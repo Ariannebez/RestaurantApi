@@ -10,13 +10,20 @@ include_once('../../core/initialize.php');
 $special = new special($db);
 
 
-// Attempt to set the client ID from the GET request, or end execution if not provided
-$special->item = isset($_GET['item']) ? $_GET['item'] : die(json_encode(['message' => 'Item name not provided.']));
+// Attempt to set the item from the GET request, or end execution if not provided
+if (!isset($_GET['item']) || empty($_GET['item'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Item name not provided.']);
+    exit;
+}
+
+$special->item = $_GET['item'];
 
 $found = $special->read_single();
 
 if (!$found) {
-    // If no client was found
+    // If no item was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'No special items found with this name.']);
     exit;
 }

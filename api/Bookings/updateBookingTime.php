@@ -19,6 +19,7 @@ $bookings->id = $data->id;
 $bookings->time = $data->time;
 
 if(!$bookings->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such booking with this id.'));
 } else {
     // Updating Time
