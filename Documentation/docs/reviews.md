@@ -10,6 +10,7 @@ This endpoint retrieves a list of all reviews.
 
 ### Success Response
 
+_ **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -32,6 +33,8 @@ This endpoint retrieves a list of all reviews.
 ```
 
 ### Error Response
+
+- **Code:** 404 Not Bad
 - **Content:**
 
 ```json
@@ -56,6 +59,7 @@ This endpoint retrieves information about a single review based on its name.
 
 #### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -69,6 +73,7 @@ This endpoint retrieves information about a single review based on its name.
 
 ### Error Responses
 
+- **Code:** 404 Not Bad
 - **Content:**
 ```json
 {
@@ -76,6 +81,7 @@ This endpoint retrieves information about a single review based on its name.
 }
 ```
 
+- **Code:** 400 Bad Request
 - **Content:**
 ```json
 {
@@ -111,6 +117,7 @@ This endpoint allows creating a new review.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 ```json
 {
@@ -120,6 +127,7 @@ This endpoint allows creating a new review.
 
 ### Error Response
 
+- **Code:** 200 OK
 - **Content:**
 ```json
 {
@@ -155,6 +163,7 @@ This endpoint allows updating the details of an existing review.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 ```json
 {
@@ -164,6 +173,7 @@ This endpoint allows updating the details of an existing review.
 
 ### Error Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -172,6 +182,7 @@ This endpoint allows updating the details of an existing review.
 }
 ```
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -199,6 +210,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -209,6 +221,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Responses
 
+- **Code:** 400 Bad Request
 - **Content:**
 ```json
 {
@@ -216,6 +229,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 }
 ```
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -224,6 +238,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 }
 ```
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json

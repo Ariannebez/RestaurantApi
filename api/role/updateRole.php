@@ -19,6 +19,7 @@ $role->id = $data->id;
 $role->name = $data->name;
 
 if(!$role->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such role with this id.'));
 } else {
     // Updating item

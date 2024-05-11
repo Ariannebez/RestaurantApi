@@ -10,6 +10,7 @@ This endpoint retrieves a list of all roles from the database.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -29,6 +30,7 @@ This endpoint retrieves a list of all roles from the database.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -53,6 +55,7 @@ This endpoint retrieves information about a single role based on its name.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -64,6 +67,7 @@ This endpoint retrieves information about a single role based on its name.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -72,6 +76,7 @@ This endpoint retrieves information about a single role based on its name.
 }
 ```
 
+- **Code:** 400 Bad Request
 - **Content:**
 
 ```json
@@ -151,6 +156,7 @@ This endpoint allows updating the details of an existing role.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -161,6 +167,7 @@ This endpoint allows updating the details of an existing role.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content :** 
 
 ```json
@@ -169,6 +176,7 @@ This endpoint allows updating the details of an existing role.
 }
 ```
 
+- **Code:** 200 OK
 - **Content :** 
 
 ```json
@@ -197,6 +205,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Success Response
 
+- **Code:** 404 Not Found
 - **Content :** 
 
 ```json
@@ -207,6 +216,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 
 ### Error Responses
 
+- **Code:** 400 Bad Request
 - **Content:** If no ID is provided in the request:
 
 ```json
@@ -215,6 +225,7 @@ The endpoint returns a JSON response with a message indicating the status of the
 }
 ```
 
+- **Code:** 404 Not Found
 - **Content:** If the provided role ID does not exist:
 
 ```json
