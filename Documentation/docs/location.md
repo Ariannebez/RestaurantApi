@@ -107,6 +107,7 @@ This endpoint allows updating the address of an existing restaurant location.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -117,6 +118,7 @@ This endpoint allows updating the address of an existing restaurant location.
 
 ### Error Response
 
+- **Code:** 404 Not Found 
 - **Content:**
 
 ```json

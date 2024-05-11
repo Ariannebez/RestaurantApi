@@ -20,12 +20,13 @@ $town->name = $data->name;
 $town->countryId = $data->countryId;
 
 if(!$town->exists()) {
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(array('message' => 'ID not good. No such town with this id.'));
 } else {
     // Updating item
     if($town->update()){
-        echo json_encode(array('message' => 'Role updated.'));
+        echo json_encode(array('message' => 'Town updated.'));
     } else {
-        echo json_encode(array('Role Not updated.'));
+        echo json_encode(array('Town Not updated.'));
     }
 }
