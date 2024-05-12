@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 12, 2024 at 06:24 PM
+-- Generation Time: May 12, 2024 at 06:38 PM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
@@ -593,7 +593,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `menuCategory`
 --
 ALTER TABLE `menuCategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `resLocation`
