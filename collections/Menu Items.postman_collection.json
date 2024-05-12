@@ -138,7 +138,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\":\"55\",\n    \"name\":\"Rid eye\",\n    \"des\":\"Rid eye served with chips and mushroom suace\",\n    \"categoryId\":\"3\"\n}",
+					"raw": "{\n    \"id\":\"3\",\n    \"name\":\"Chicken pasta\",\n    \"des\":\"Chicken, mushrooms, grail in white sauce\",\n    \"categoryId\":\"2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

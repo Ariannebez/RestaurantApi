@@ -65,7 +65,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8888/RestaurantApi/api/reviews/getReviewByName.php?name=updata",
+					"raw": "http://localhost:8888/RestaurantApi/api/reviews/getReviewByName.php?name=mark",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -80,7 +80,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "updata"
+							"value": "mark"
 						}
 					]
 				}
@@ -124,7 +124,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8888/RestaurantApi/api/reviews/deleteReview.php?id=4",
+					"raw": "http://localhost:8888/RestaurantApi/api/reviews/deleteReview.php?id=444",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -139,7 +139,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "4"
+							"value": "444"
 						}
 					]
 				}

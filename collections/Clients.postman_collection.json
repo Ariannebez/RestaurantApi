@@ -75,7 +75,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n    \"email\":\"markho@tmail.com\",\n    \"password\":\"dcdvfv\",\n    \"name\":\" \",\n    \"surname\":\"Galea\",\n    \"dob\":\"2001-4-1\",\n    \"addressId\":\"\",\n    \"doorNo\":\"23\",\n    \"street\":\"Triq vestru\",\n    \"townId\":\"2\"\n}",
+					"raw": "{ \n    \"email\":\"ella@gmail.com\",\n    \"password\":\"dcdvfv\",\n    \"name\":\"Ella\",\n    \"surname\":\"Galea\",\n    \"dob\":\"2001-4-1\",\n    \"addressId\":\"\",\n    \"doorNo\":\"23\",\n    \"street\":\"Triq l Gnien\",\n    \"townId\":\"10\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -106,7 +106,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n    \"id\":\"27\",\n    \"email\":\"markUpdate@hotmail.ccom\",\n    \"name\":\"Mark\",\n    \"surname\":\"Vella\"\n}\n",
+					"raw": "{ \n    \"id\":\"200\",\n    \"email\":\"markUpdate@hotmail.ccom\",\n    \"name\":\"Mark\",\n    \"surname\":\"Vella\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,7 +136,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8888/RestaurantApi/api/clients/deleteClient.php?id=22",
+					"raw": "http://localhost:8888/RestaurantApi/api/clients/deleteClient.php?id=444",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -151,7 +151,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "22"
+							"value": "444"
 						}
 					]
 				}
