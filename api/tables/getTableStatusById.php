@@ -10,13 +10,20 @@ include_once('../../core/initialize.php');
 $tableStatus = new tableStatus($db);
 
 
-// Attempt to set the client ID from the GET request, or end execution if not provided
-$tableStatus->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'table status id not provided.']));
+// Attempt to set the table status ID from the GET request, or end execution if not provided
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Table status ID not provided.']);
+    exit;
+}
+
+$tableStatus->id = $_GET['id'];
 
 $found = $tableStatus->read_single();
 
 if (!$found) {
     // If no client was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'No table status found with this number.']);
     exit;
 }

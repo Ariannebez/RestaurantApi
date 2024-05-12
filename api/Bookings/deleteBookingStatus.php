@@ -19,6 +19,7 @@ $data = json_decode(file_get_contents('php://input'));
 $bookingStatusId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if($bookingStatusId === null) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
     echo json_encode(array('message' => 'No ID provided.'));
     exit; // Stop script execution after sending the response
 }

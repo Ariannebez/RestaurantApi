@@ -10,12 +10,20 @@ include_once('../../core/initialize.php');
 $area = new area($db);
 
 
-$area->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'Area id not provided.']));
+// Attempt to set the area ID from the GET request, or end execution if not provided
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Area ID not provided.']);
+    exit;
+}
+
+$area->id = $_GET['id'];
 
 $found = $area->read_single();
 
 if (!$found) {
     // If no client was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'No area found with this number.']);
     exit;
 }

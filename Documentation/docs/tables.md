@@ -12,6 +12,7 @@ Retrieves a list of all tables from the database.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -39,6 +40,7 @@ Retrieves a list of all tables from the database.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:**
 ```json
 {
@@ -62,6 +64,7 @@ Retrieves information about a single table based on its number.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -77,10 +80,19 @@ Retrieves information about a single table based on its number.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:**
 ```json
 {
     "message": "No table found with this number."
+}
+```
+
+- **Code:** 400 Bad Request 
+- **Content:**
+```json
+{
+    "message": "No ID Provided."
 }
 ```
 
@@ -94,6 +106,7 @@ Retrieves information about all tables with their current status.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -119,6 +132,7 @@ Retrieves information about all tables with their current status.
 
 This error response indicates that no status information was found.
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -143,6 +157,7 @@ Retrieves information about a single table status based on its ID.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -156,6 +171,7 @@ Retrieves information about a single table status based on its ID.
 
 ### Error Response
 
+- **Code:** 400 Bad Request
 - **Content:**
 ```json
 {
@@ -163,6 +179,7 @@ Retrieves information about a single table status based on its ID.
 }
 ```
 
+- **Code:** 404 Not Found
 - **Content:**
 ```json
 {
@@ -182,6 +199,7 @@ Retrieves information about all areas.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -203,6 +221,7 @@ Retrieves information about all areas.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -227,6 +246,7 @@ Retrieves information about a single area based on its ID.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -239,6 +259,7 @@ Retrieves information about a single area based on its ID.
 
 ### Error Response
 
+- **Code:** 404 Not Found
 - **Content:**
 
 ```json
@@ -247,6 +268,7 @@ Retrieves information about a single area based on its ID.
 }
 ```
 
+- **Code:** 400 Bad Request
 - **Content:**
 
 ```json
@@ -283,6 +305,7 @@ This endpoint allows creating a new table.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content :** If the table is successfully created
 
 ```json
@@ -293,6 +316,7 @@ This endpoint allows creating a new table.
 
 ### Error Response
 
+- **Code:** 200 OK
 - **Content :** If the table creation fails
 
 ```json
@@ -331,6 +355,7 @@ This endpoint allows creating a new table status.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -341,6 +366,7 @@ This endpoint allows creating a new table status.
 
 ### Error Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -377,6 +403,7 @@ This endpoint allows creating a new table.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** If the table is successfully created
 ```json
 {
@@ -386,6 +413,7 @@ This endpoint allows creating a new table.
 
 ### Error Response
 
+- **Code:** 200 OK
 - **Content:** If the table creation fails
 ```json
 {
@@ -447,6 +475,7 @@ This endpoint allows updating the details of an existing table.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -457,6 +486,7 @@ This endpoint allows updating the details of an existing table.
 
 ### Error Responses
 
+- **Code:** 404 Not Found
 - **Content:** 
 
 ```json
@@ -465,6 +495,7 @@ This endpoint allows updating the details of an existing table.
 }
 ```
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -503,6 +534,7 @@ Updates information about a table in the restaurant area.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -513,6 +545,7 @@ Updates information about a table in the restaurant area.
 
 ### Error Responses
 
+- **Code:** 404 Not Found
 - **Content:** 
 
 ```json
@@ -521,6 +554,7 @@ Updates information about a table in the restaurant area.
 }
 ```
 
+- **Code:** 200 OK
 - **Content:** 
 
 ```json
@@ -545,6 +579,7 @@ Deletes the status booking of a table.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -555,6 +590,7 @@ Deletes the status booking of a table.
 
 ### Error Responses
 
+- **Code:** 400 Bad Request
 - **Content:** No ID Provided
 
 ```json
@@ -563,6 +599,7 @@ Deletes the status booking of a table.
 }
 ```
 
+- **Code:** 404 Not Found
 - **Content:** If the provided table ID does not exist
 ```json
 {
@@ -570,6 +607,7 @@ Deletes the status booking of a table.
 }
 ```
 
+- **Code:** 200 OK
 - **Content:** If the table deletion fails
 ```json
 {
@@ -593,6 +631,7 @@ Deletes the a table from the restaurant.
 
 ### Success Response
 
+- **Code:** 200 OK
 - **Content:**
 
 ```json
@@ -603,6 +642,7 @@ Deletes the a table from the restaurant.
 
 ### Error Responses
 
+- **Code:** 400 Bad Request
 - **Content:** No ID Provided
 
 ```json
@@ -611,6 +651,7 @@ Deletes the a table from the restaurant.
 }
 ```
 
+- **Code:** 404 Not Found
 - **Content:** If the provided table ID does not exist
 ```json
 {
@@ -618,6 +659,7 @@ Deletes the a table from the restaurant.
 }
 ```
 
+- **Code:** 200 OK
 - **Content:** If the table deletion fails
 ```json
 {

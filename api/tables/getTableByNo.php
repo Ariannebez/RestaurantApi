@@ -10,13 +10,20 @@ include_once('../../core/initialize.php');
 $table = new table($db);
 
 
-// Attempt to set the client ID from the GET request, or end execution if not provided
-$table->id = isset($_GET['id']) ? $_GET['id'] : die(json_encode(['message' => 'table number not provided.']));
+// Attempt to set the table ID from the GET request, or end execution if not provided
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    http_response_code(400); // Set HTTP status code to 400 Bad Request
+    echo json_encode(['message' => 'Table number not provided.']);
+    exit;
+}
+
+$table->id = $_GET['id'];
 
 $found = $table->read_single();
 
 if (!$found) {
     // If no client was found
+    http_response_code(404); // Set HTTP status code to 404 Not Found
     echo json_encode(['message' => 'No table found with this number.']);
     exit;
 }
