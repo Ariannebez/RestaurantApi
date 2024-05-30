@@ -750,7 +750,7 @@ The endpoint returns a JSON response containing an array of menu categories.
 
 ```json
 {
-    "message": "No Country found"
+    "message": "No Categories found"
 }
 ```
 
